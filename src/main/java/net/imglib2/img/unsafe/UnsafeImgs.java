@@ -71,6 +71,7 @@ import net.imglib2.type.numeric.integer.UnsignedByteLongAccessType;
 import net.imglib2.type.numeric.integer.UnsignedByteType;
 import net.imglib2.type.numeric.integer.UnsignedIntLongAccessType;
 import net.imglib2.type.numeric.integer.UnsignedIntType;
+import net.imglib2.type.numeric.integer.UnsignedLongLongAccessType;
 import net.imglib2.type.numeric.integer.UnsignedShortLongAccessType;
 import net.imglib2.type.numeric.integer.UnsignedShortType;
 import net.imglib2.type.numeric.real.DoubleLongAccessType;
@@ -228,6 +229,27 @@ final public class UnsafeImgs
 	{
 		final UnsafeImg< IntLongAccessType, IntLongAccess > img = new UnsafeImg< >( access, dim, new Fraction() );
 		final IntLongAccessType t = new IntLongAccessType( img );
+		img.setLinkedType( t );
+		return img;
+	}
+
+	/**
+	 * Create an {@link UnsafeImg}<{@link LongType}, {@link LongArray}>.
+	 */
+	@SuppressWarnings( "unchecked" )
+	final static public UnsafeImg< UnsignedLongLongAccessType, OwningLongUnsafe > unsignedLongs( final long... dim )
+	{
+		return ( UnsafeImg< UnsignedLongLongAccessType, OwningLongUnsafe > ) new UnsafeImgFactory< UnsignedLongLongAccessType >().create( dim, new UnsignedLongLongAccessType() );
+	}
+
+	/**
+	 * Creates an {@link UnsafeImg}<{@link LongType}, {@link LongArray}> reusing
+	 * a passed long[] array.
+	 */
+	final public static UnsafeImg< UnsignedLongLongAccessType, LongLongAccess > unsignedLongs( final LongLongAccess access, final long... dim )
+	{
+		final UnsafeImg< UnsignedLongLongAccessType, LongLongAccess > img = new UnsafeImg<>( access, dim, new Fraction() );
+		final UnsignedLongLongAccessType t = new UnsignedLongLongAccessType( img );
 		img.setLinkedType( t );
 		return img;
 	}
