@@ -9,21 +9,18 @@ import net.imglib2.type.numeric.integer.ShortType;
 public class ShortLongAccessTypeShortTypeConverter implements SamplerConverter< ShortLongAccessType, ShortType >
 {
 
-	private final ConvertedAccess access = new ConvertedAccess();
-
 	@Override
 	public ShortType convert( final Sampler< ? extends ShortLongAccessType > sampler )
 	{
-		access.setType( sampler.get() );
-		return new ShortType( access );
+		return new ShortType( new ConvertedAccess( sampler.get() ) );
 	}
 
 	public static class ConvertedAccess implements ShortAccess
 	{
 
-		ShortLongAccessType type = null;
+		private final ShortLongAccessType type;
 
-		public void setType( final ShortLongAccessType type )
+		public ConvertedAccess( final ShortLongAccessType type )
 		{
 			this.type = type;
 		}

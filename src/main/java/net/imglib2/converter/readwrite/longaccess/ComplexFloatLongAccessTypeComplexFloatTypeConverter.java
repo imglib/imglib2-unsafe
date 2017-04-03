@@ -9,21 +9,18 @@ import net.imglib2.type.numeric.complex.ComplexFloatType;
 public class ComplexFloatLongAccessTypeComplexFloatTypeConverter implements SamplerConverter< ComplexFloatLongAccessType, ComplexFloatType >
 {
 
-	private final ConvertedAccess access = new ConvertedAccess();
-
 	@Override
 	public ComplexFloatType convert( final Sampler< ? extends ComplexFloatLongAccessType > sampler )
 	{
-		access.setType( sampler.get() );
-		return new ComplexFloatType( access );
+		return new ComplexFloatType( new ConvertedAccess( sampler.get() ) );
 	}
 
 	public static class ConvertedAccess implements FloatAccess
 	{
 
-		ComplexFloatLongAccessType type = null;
+		private final ComplexFloatLongAccessType type;
 
-		public void setType( final ComplexFloatLongAccessType type )
+		public ConvertedAccess( final ComplexFloatLongAccessType type )
 		{
 			this.type = type;
 		}

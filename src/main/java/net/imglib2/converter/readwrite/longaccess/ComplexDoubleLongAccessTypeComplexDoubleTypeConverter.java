@@ -9,21 +9,18 @@ import net.imglib2.type.numeric.complex.ComplexDoubleType;
 public class ComplexDoubleLongAccessTypeComplexDoubleTypeConverter implements SamplerConverter< ComplexDoubleLongAccessType, ComplexDoubleType >
 {
 
-	private final ConvertedAccess access = new ConvertedAccess();
-
 	@Override
 	public ComplexDoubleType convert( final Sampler< ? extends ComplexDoubleLongAccessType > sampler )
 	{
-		access.setType( sampler.get() );
-		return new ComplexDoubleType( access );
+		return new ComplexDoubleType( new ConvertedAccess( sampler.get() ) );
 	}
 
 	public static class ConvertedAccess implements DoubleAccess
 	{
 
-		ComplexDoubleLongAccessType type = null;
+		private final ComplexDoubleLongAccessType type;
 
-		public void setType( final ComplexDoubleLongAccessType type )
+		public ConvertedAccess( final ComplexDoubleLongAccessType type )
 		{
 			this.type = type;
 		}

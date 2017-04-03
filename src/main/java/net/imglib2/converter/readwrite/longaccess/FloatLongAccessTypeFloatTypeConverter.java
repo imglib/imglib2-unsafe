@@ -9,21 +9,18 @@ import net.imglib2.type.numeric.real.FloatType;
 public class FloatLongAccessTypeFloatTypeConverter implements SamplerConverter< FloatLongAccessType, FloatType >
 {
 
-	private final FloatLongAccessTypeFloatTypeConverter.ConvertedAccess access = new ConvertedAccess();
-
 	@Override
 	public FloatType convert( final Sampler< ? extends FloatLongAccessType > sampler )
 	{
-		access.setType( sampler.get() );
-		return new FloatType( access );
+		return new FloatType( new ConvertedAccess( sampler.get() ) );
 	}
 
 	public static class ConvertedAccess implements FloatAccess
 	{
 
-		FloatLongAccessType type = null;
+		private final FloatLongAccessType type;
 
-		public void setType( final FloatLongAccessType type )
+		public ConvertedAccess( final FloatLongAccessType type )
 		{
 			this.type = type;
 		}

@@ -9,21 +9,18 @@ import net.imglib2.type.numeric.integer.UnsignedLongType;
 public class UnsignedLongLongAccessTypeUnsignedLongTypeConverter implements SamplerConverter< UnsignedLongLongAccessType, UnsignedLongType >
 {
 
-	private final ConvertedAccess access = new ConvertedAccess();
-
 	@Override
 	public UnsignedLongType convert( final Sampler< ? extends UnsignedLongLongAccessType > sampler )
 	{
-		access.setType( sampler.get() );
-		return new UnsignedLongType( access );
+		return new UnsignedLongType( new ConvertedAccess( sampler.get() ) );
 	}
 
 	public static class ConvertedAccess implements LongAccess
 	{
 
-		UnsignedLongLongAccessType type = null;
+		private final UnsignedLongLongAccessType type;
 
-		public void setType( final UnsignedLongLongAccessType type )
+		public ConvertedAccess( final UnsignedLongLongAccessType type )
 		{
 			this.type = type;
 		}

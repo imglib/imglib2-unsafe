@@ -9,21 +9,18 @@ import net.imglib2.type.numeric.ARGBType;
 public class ARGBLongAccessTypeARGBTypeConverter implements SamplerConverter< ARGBLongAccessType, ARGBType >
 {
 
-	private final ConvertedAccess access = new ConvertedAccess();
-
 	@Override
 	public ARGBType convert( final Sampler< ? extends ARGBLongAccessType > sampler )
 	{
-		access.setType( sampler.get() );
-		return new ARGBType( access );
+		return new ARGBType( new ConvertedAccess( sampler.get() ) );
 	}
 
 	public static class ConvertedAccess implements IntAccess
 	{
 
-		ARGBLongAccessType type = null;
+		private final ARGBLongAccessType type;
 
-		public void setType( final ARGBLongAccessType type )
+		public ConvertedAccess( final ARGBLongAccessType type )
 		{
 			this.type = type;
 		}

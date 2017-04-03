@@ -9,21 +9,18 @@ import net.imglib2.type.numeric.integer.ByteType;
 public class ByteLongAccessTypeByteTypeConverter implements SamplerConverter< ByteLongAccessType, ByteType >
 {
 
-	private final ConvertedAccess access = new ConvertedAccess();
-
 	@Override
 	public ByteType convert( final Sampler< ? extends ByteLongAccessType > sampler )
 	{
-		access.setType( sampler.get() );
-		return new ByteType( access );
+		return new ByteType( new ConvertedAccess( sampler.get() ) );
 	}
 
 	public static class ConvertedAccess implements ByteAccess
 	{
 
-		ByteLongAccessType type = null;
+		private final ByteLongAccessType type;
 
-		public void setType( final ByteLongAccessType type )
+		public ConvertedAccess( final ByteLongAccessType type )
 		{
 			this.type = type;
 		}

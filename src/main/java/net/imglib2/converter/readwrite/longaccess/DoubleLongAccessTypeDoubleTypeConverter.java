@@ -9,21 +9,18 @@ import net.imglib2.type.numeric.real.DoubleType;
 public class DoubleLongAccessTypeDoubleTypeConverter implements SamplerConverter< DoubleLongAccessType, DoubleType >
 {
 
-	private final ConvertedAccess access = new ConvertedAccess();
-
 	@Override
 	public DoubleType convert( final Sampler< ? extends DoubleLongAccessType > sampler )
 	{
-		access.setType( sampler.get() );
-		return new DoubleType( access );
+		return new DoubleType( new ConvertedAccess( sampler.get() ) );
 	}
 
 	public static class ConvertedAccess implements DoubleAccess
 	{
 
-		DoubleLongAccessType type = null;
+		private final DoubleLongAccessType type;
 
-		public void setType( final DoubleLongAccessType type )
+		public ConvertedAccess( final DoubleLongAccessType type )
 		{
 			this.type = type;
 		}
