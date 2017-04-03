@@ -6,7 +6,7 @@ import net.imglib2.img.basictypeaccess.DoubleAccess;
 import net.imglib2.type.numeric.real.DoubleLongAccessType;
 import net.imglib2.type.numeric.real.DoubleType;
 
-public class DoubleLongAccessTypeDoubleTypeConverter2 implements SamplerConverter< DoubleLongAccessType, DoubleType >
+public class DoubleLongAccessTypeDoubleTypeConverter implements SamplerConverter< DoubleLongAccessType, DoubleType >
 {
 
 	private final ConvertedAccess access = new ConvertedAccess();
