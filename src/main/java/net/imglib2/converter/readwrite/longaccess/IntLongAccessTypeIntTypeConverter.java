@@ -28,7 +28,6 @@ public class IntLongAccessTypeIntTypeConverter implements SamplerConverter< IntL
 			this.type = type;
 		}
 
-
 		@Override
 		public int getValue( final int index )
 		{

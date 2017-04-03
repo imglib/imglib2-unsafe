@@ -28,7 +28,6 @@ public class ComplexFloatLongAccessTypeComplexFloatTypeConverter implements Samp
 			this.type = type;
 		}
 
-
 		@Override
 		public float getValue( final int index )
 		{

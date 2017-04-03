@@ -88,7 +88,10 @@ public abstract class GenericShortLongAccessType< T extends GenericShortLongAcce
 	}
 
 	@Override
-	public Fraction getEntitiesPerPixel() { return new Fraction(); }
+	public Fraction getEntitiesPerPixel()
+	{
+		return new Fraction();
+	}
 
 	@Override
 	public void updateContainer( final Object c )

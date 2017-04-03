@@ -45,10 +45,11 @@ import net.imglib2.util.Fraction;
  * @author Philipp Hanslovsky
  */
 public abstract class AbstractNativeLongAccessImg< T extends NativeLongAccessType< T >, A >
-extends AbstractImg< T >
-implements NativeLongAccessImg< T, A >
+		extends AbstractImg< T >
+		implements NativeLongAccessImg< T, A >
 {
 	final protected Fraction entitiesPerPixel;
+
 	protected long numEntities;
 
 	protected T linkedType;

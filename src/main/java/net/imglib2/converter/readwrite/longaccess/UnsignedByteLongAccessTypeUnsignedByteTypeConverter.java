@@ -28,7 +28,6 @@ public class UnsignedByteLongAccessTypeUnsignedByteTypeConverter implements Samp
 			this.type = type;
 		}
 
-
 		@Override
 		public byte getValue( final int index )
 		{

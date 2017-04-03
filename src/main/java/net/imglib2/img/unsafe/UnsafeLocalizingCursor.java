@@ -75,7 +75,7 @@ public final class UnsafeLocalizingCursor< T extends NativeLongAccessType< T > >
 	@Override
 	public UnsafeLocalizingCursor< T > copy()
 	{
-		return new UnsafeLocalizingCursor< >( this );
+		return new UnsafeLocalizingCursor<>( this );
 	}
 
 	@Override

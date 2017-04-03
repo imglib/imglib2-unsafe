@@ -18,7 +18,7 @@ public class LongLongAccessType extends GenericLongLongAccessType< LongLongAcces
 	// this is the constructor if you want to specify the dataAccess
 	public LongLongAccessType( final LongLongAccess access )
 	{
-		super ( access );
+		super( access );
 	}
 
 	// this is the constructor if you want it to be a variable

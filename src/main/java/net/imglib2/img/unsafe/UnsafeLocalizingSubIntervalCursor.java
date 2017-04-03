@@ -77,7 +77,7 @@ public final class UnsafeLocalizingSubIntervalCursor< T extends NativeLongAccess
 	@Override
 	public UnsafeLocalizingSubIntervalCursor< T > copy()
 	{
-		return new UnsafeLocalizingSubIntervalCursor< >( this );
+		return new UnsafeLocalizingSubIntervalCursor<>( this );
 	}
 
 	@Override

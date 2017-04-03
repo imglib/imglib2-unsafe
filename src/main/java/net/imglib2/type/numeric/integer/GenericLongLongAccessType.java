@@ -84,7 +84,10 @@ public abstract class GenericLongLongAccessType< T extends GenericLongLongAccess
 	}
 
 	@Override
-	public Fraction getEntitiesPerPixel() { return new Fraction(); }
+	public Fraction getEntitiesPerPixel()
+	{
+		return new Fraction();
+	}
 
 	@Override
 	public void updateContainer( final Object c )
@@ -101,7 +104,6 @@ public abstract class GenericLongLongAccessType< T extends GenericLongLongAccess
 	{
 		dataAccess.setValue( i, f );
 	}
-
 
 	@Override
 	public void mul( final float c )

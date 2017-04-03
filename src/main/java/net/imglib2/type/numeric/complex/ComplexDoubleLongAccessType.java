@@ -205,8 +205,7 @@ public class ComplexDoubleLongAccessType extends AbstractComplexType< ComplexDou
 	@Override
 	public boolean valueEquals( final ComplexDoubleLongAccessType t )
 	{
-		return
-				getRealDouble() == t.getRealDouble() &&
+		return getRealDouble() == t.getRealDouble() &&
 				getImaginaryDouble() == t.getImaginaryDouble();
 	}
 }

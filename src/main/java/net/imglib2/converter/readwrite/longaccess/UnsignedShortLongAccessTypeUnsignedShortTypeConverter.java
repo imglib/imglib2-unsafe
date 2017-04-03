@@ -28,7 +28,6 @@ public class UnsignedShortLongAccessTypeUnsignedShortTypeConverter implements Sa
 			this.type = type;
 		}
 
-
 		@Override
 		public short getValue( final int index )
 		{

@@ -28,7 +28,6 @@ public class ShortLongAccessTypeShortTypeConverter implements SamplerConverter< 
 			this.type = type;
 		}
 
-
 		@Override
 		public short getValue( final int index )
 		{

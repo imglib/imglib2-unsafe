@@ -28,8 +28,8 @@ public class FloatLongAccessTypeFloatTypeConverter implements SamplerConverter< 
 			this.type = type;
 		}
 
-
-		@Override public float getValue( final int index )
+		@Override
+		public float getValue( final int index )
 		{
 			return type.get();
 		}

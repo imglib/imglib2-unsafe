@@ -28,7 +28,6 @@ public class ComplexDoubleLongAccessTypeComplexDoubleTypeConverter implements Sa
 			this.type = type;
 		}
 
-
 		@Override
 		public double getValue( final int index )
 		{

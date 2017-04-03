@@ -92,19 +92,19 @@ public class UnsafeImg< T extends NativeLongAccessType< T >, A > extends Abstrac
 	@Override
 	public UnsafeCursor< T > cursor()
 	{
-		return new UnsafeCursor< >( this );
+		return new UnsafeCursor<>( this );
 	}
 
 	@Override
 	public UnsafeLocalizingCursor< T > localizingCursor()
 	{
-		return new UnsafeLocalizingCursor< >( this );
+		return new UnsafeLocalizingCursor<>( this );
 	}
 
 	@Override
 	public UnsafeRandomAccess< T > randomAccess()
 	{
-		return new UnsafeRandomAccess< >( this );
+		return new UnsafeRandomAccess<>( this );
 	}
 
 	@Override
@@ -149,7 +149,7 @@ public class UnsafeImg< T extends NativeLongAccessType< T >, A > extends Abstrac
 
 		assert dimLength > 0;
 
-		return new UnsafeSubIntervalCursor< >( this, ( int ) offset( interval ), ( int ) size( interval, dimLength ) );
+		return new UnsafeSubIntervalCursor<>( this, ( int ) offset( interval ), ( int ) size( interval, dimLength ) );
 	}
 
 	private long size( final Interval interval, final int length )
@@ -211,7 +211,7 @@ public class UnsafeImg< T extends NativeLongAccessType< T >, A > extends Abstrac
 
 		assert dimLength > 0;
 
-		return new UnsafeLocalizingSubIntervalCursor< T >( this, ( int ) offset( interval ), ( int ) size( interval, dimLength ) );
+		return new UnsafeLocalizingSubIntervalCursor<>( this, ( int ) offset( interval ), ( int ) size( interval, dimLength ) );
 	}
 
 	/**

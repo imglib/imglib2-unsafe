@@ -124,4 +124,3 @@ public class ShortLongAccessType extends GenericShortLongAccessType< ShortLongAc
 		return new ShortLongAccessType( getValue() );
 	}
 }
-

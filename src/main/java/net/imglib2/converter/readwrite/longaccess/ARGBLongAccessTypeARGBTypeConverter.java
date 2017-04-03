@@ -28,7 +28,6 @@ public class ARGBLongAccessTypeARGBTypeConverter implements SamplerConverter< AR
 			this.type = type;
 		}
 
-
 		@Override
 		public int getValue( final int index )
 		{

@@ -210,7 +210,7 @@ public class UnsafeRandomAccess< T extends NativeLongAccessType< T > > extends A
 	@Override
 	public UnsafeRandomAccess< T > copy()
 	{
-		return new UnsafeRandomAccess< >( this );
+		return new UnsafeRandomAccess<>( this );
 	}
 
 	@Override

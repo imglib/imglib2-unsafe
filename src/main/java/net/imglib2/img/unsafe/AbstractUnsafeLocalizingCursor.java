@@ -79,8 +79,8 @@ public abstract class AbstractUnsafeLocalizingCursor< T extends NativeLongAccess
 	protected final Long lastIndex;
 
 	/**
-	 * Maximum of the {@link UnsafeImg} in every dimension. This is used to check
-	 * isOutOfBounds().
+	 * Maximum of the {@link UnsafeImg} in every dimension. This is used to
+	 * check isOutOfBounds().
 	 */
 	protected final int[] max;
 

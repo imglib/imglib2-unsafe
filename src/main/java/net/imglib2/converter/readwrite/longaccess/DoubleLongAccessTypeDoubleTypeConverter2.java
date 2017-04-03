@@ -28,7 +28,6 @@ public class DoubleLongAccessTypeDoubleTypeConverter2 implements SamplerConverte
 			this.type = type;
 		}
 
-
 		@Override
 		public double getValue( final int index )
 		{

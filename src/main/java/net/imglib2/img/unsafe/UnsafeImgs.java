@@ -121,14 +121,15 @@ final public class UnsafeImgs
 	 */
 	final public static UnsafeImg< UnsignedByteLongAccessType, ByteLongAccess > unsignedBytes( final ByteLongAccess access, final long... dim )
 	{
-		final UnsafeImg< UnsignedByteLongAccessType, ByteLongAccess > img = new UnsafeImg< >( access, dim, new Fraction() );
+		final UnsafeImg< UnsignedByteLongAccessType, ByteLongAccess > img = new UnsafeImg<>( access, dim, new Fraction() );
 		final UnsignedByteLongAccessType t = new UnsignedByteLongAccessType( img );
 		img.setLinkedType( t );
 		return img;
 	}
 
 	/**
-	 * Create an {@link UnsafeImg}<{@link ByteLongAccessType}, {@link ByteArray}>.
+	 * Create an {@link UnsafeImg}<{@link ByteLongAccessType},
+	 * {@link ByteArray}>.
 	 */
 	@SuppressWarnings( "unchecked" )
 	final static public UnsafeImg< ByteLongAccessType, OwningByteUnsafe > bytes( final long... dim )
@@ -137,8 +138,8 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Creates an {@link UnsafeImg}<{@link ByteLongAccessType}, {@link ByteArray}> reusing
-	 * a passed byte[] array.
+	 * Creates an {@link UnsafeImg}<{@link ByteLongAccessType},
+	 * {@link ByteArray}> reusing a passed byte[] array.
 	 */
 	final public static UnsafeImg< ByteLongAccessType, ByteLongAccess > bytes( final ByteLongAccess access, final long... dim )
 	{
@@ -159,8 +160,8 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Creates an {@link UnsafeImg}<{@link UnsignedShortType}, {@link ShortArray}
-	 * > reusing a passed short[] array.
+	 * Creates an {@link UnsafeImg}<{@link UnsignedShortType},
+	 * {@link ShortArray} > reusing a passed short[] array.
 	 */
 	final public static UnsafeImg< UnsignedShortLongAccessType, ShortLongAccess > unsignedShorts( final ShortLongAccess access, final long... dim )
 	{
@@ -227,7 +228,7 @@ final public class UnsafeImgs
 	 */
 	final public static UnsafeImg< IntLongAccessType, IntLongAccess > ints( final IntLongAccess access, final long... dim )
 	{
-		final UnsafeImg< IntLongAccessType, IntLongAccess > img = new UnsafeImg< >( access, dim, new Fraction() );
+		final UnsafeImg< IntLongAccessType, IntLongAccess > img = new UnsafeImg<>( access, dim, new Fraction() );
 		final IntLongAccessType t = new IntLongAccessType( img );
 		img.setLinkedType( t );
 		return img;
@@ -288,9 +289,9 @@ final public class UnsafeImgs
 	 * Creates an {@link UnsafeImg}<{@link FloatType}, {@link FloatArray}>
 	 * reusing a passed float[] array.
 	 */
-	final public static UnsafeImg< FloatLongAccessType, FloatUnsafe> floats( final FloatUnsafe access, final long... dim )
+	final public static UnsafeImg< FloatLongAccessType, FloatUnsafe > floats( final FloatUnsafe access, final long... dim )
 	{
-		final UnsafeImg< FloatLongAccessType, FloatUnsafe > img = new UnsafeImg< >( access, dim, new Fraction() );
+		final UnsafeImg< FloatLongAccessType, FloatUnsafe > img = new UnsafeImg<>( access, dim, new Fraction() );
 		final FloatLongAccessType t = new FloatLongAccessType( img );
 		img.setLinkedType( t );
 		return img;
@@ -327,8 +328,8 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Creates an {@link UnsafeImg}<{@link ARGBType}, {@link IntArray}> reusing a
-	 * passed int[] array.
+	 * Creates an {@link UnsafeImg}<{@link ARGBType}, {@link IntArray}> reusing
+	 * a passed int[] array.
 	 */
 	final public static UnsafeImg< ARGBLongAccessType, IntLongAccess > argbs( final IntLongAccess access, final long... dim )
 	{
@@ -341,7 +342,8 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Create an {@link UnsafeImg}<{@link ComplexFloatType}, {@link FloatArray}>.
+	 * Create an {@link UnsafeImg}<{@link ComplexFloatType},
+	 * {@link FloatArray}>.
 	 */
 	@SuppressWarnings( "unchecked" )
 	final static public UnsafeImg< ComplexFloatLongAccessType, FloatLongAccess > complexFloats( final long... dim )
@@ -355,15 +357,15 @@ final public class UnsafeImgs
 	 */
 	final public static UnsafeImg< ComplexFloatLongAccessType, FloatLongAccess > complexFloats( final FloatLongAccess access, final long... dim )
 	{
-		final UnsafeImg< ComplexFloatLongAccessType, FloatLongAccess > img = new UnsafeImg< >( access, dim, new Fraction( 2, 1 ) );
+		final UnsafeImg< ComplexFloatLongAccessType, FloatLongAccess > img = new UnsafeImg<>( access, dim, new Fraction( 2, 1 ) );
 		final ComplexFloatLongAccessType t = new ComplexFloatLongAccessType( img );
 		img.setLinkedType( t );
 		return img;
 	}
 
 	/**
-	 * Create an {@link UnsafeImg}<{@link ComplexDoubleType}, {@link DoubleArray}
-	 * >.
+	 * Create an {@link UnsafeImg}<{@link ComplexDoubleType},
+	 * {@link DoubleArray} >.
 	 */
 	@SuppressWarnings( "unchecked" )
 	final static public UnsafeImg< ComplexDoubleLongAccessType, DoubleLongAccess > complexDoubles( final long... dim )

@@ -28,7 +28,6 @@ public class UnsignedIntLongAccessTypeUnsignedIntTypeConverter implements Sample
 			this.type = type;
 		}
 
-
 		@Override
 		public int getValue( final int index )
 		{

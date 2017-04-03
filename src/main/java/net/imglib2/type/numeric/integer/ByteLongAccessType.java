@@ -124,4 +124,3 @@ public class ByteLongAccessType extends GenericByteLongAccessType< ByteLongAcces
 		return new ByteLongAccessType( getValue() );
 	}
 }
-

@@ -28,7 +28,6 @@ public class ByteLongAccessTypeByteTypeConverter implements SamplerConverter< By
 			this.type = type;
 		}
 
-
 		@Override
 		public byte getValue( final int index )
 		{

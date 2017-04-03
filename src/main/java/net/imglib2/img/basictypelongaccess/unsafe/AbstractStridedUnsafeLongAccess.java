@@ -4,7 +4,6 @@ public class AbstractStridedUnsafeLongAccess
 {
 	protected final int stride;
 
-
 	public AbstractStridedUnsafeLongAccess( final int stride )
 	{
 		super();

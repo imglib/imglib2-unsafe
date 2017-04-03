@@ -85,7 +85,10 @@ public abstract class GenericByteLongAccessType< T extends GenericByteLongAccess
 	}
 
 	@Override
-	public Fraction getEntitiesPerPixel() { return new Fraction(); }
+	public Fraction getEntitiesPerPixel()
+	{
+		return new Fraction();
+	}
 
 	@Override
 	public void updateContainer( final Object c )
