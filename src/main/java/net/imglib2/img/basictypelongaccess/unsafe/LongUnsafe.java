@@ -35,7 +35,11 @@ public class LongUnsafe extends AbstractStridedUnsafeLongAccess implements LongL
 	public void setValue( final long index, final long value )
 	{
 		UnsafeUtil.UNSAFE.putLong( getPosition( address, index ), value );
+	}
 
+	public long getAddres()
+	{
+		return address;
 	}
 
 }

@@ -37,4 +37,9 @@ public class CharUnsafe extends AbstractStridedUnsafeLongAccess implements CharL
 		UnsafeUtil.UNSAFE.putChar( getPosition( address, index ), value );
 	}
 
+	public long getAddres()
+	{
+		return address;
+	}
+
 }

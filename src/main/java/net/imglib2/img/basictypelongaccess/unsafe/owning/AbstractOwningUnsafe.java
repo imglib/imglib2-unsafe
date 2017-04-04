@@ -19,4 +19,9 @@ public abstract class AbstractOwningUnsafe
 		owner.discard();
 	}
 
+	public long getAddress()
+	{
+		return owner.getAddress();
+	}
+
 }

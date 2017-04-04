@@ -37,4 +37,9 @@ public class ShortUnsafe extends AbstractStridedUnsafeLongAccess implements Shor
 		UnsafeUtil.UNSAFE.putShort( getPosition( address, index ), value );
 	}
 
+	public long getAddres()
+	{
+		return address;
+	}
+
 }

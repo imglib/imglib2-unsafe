@@ -50,6 +50,30 @@ public class UnsafeUtil
 		return objectAddress;
 	}
 
+	public static long getFirstArrayElementAddress( final Object array )
+	{
+		final long arrayAddress = getAddress( array );
+		final long baseOffset = UNSAFE.arrayBaseOffset( array.getClass() );
+		return arrayAddress + baseOffset;
+//		final int addressSize = UNSAFE.addressSize();
+//		long objectAddress;
+//		final long off = 4l;
+//		switch ( addressSize )
+//		{
+//		case 4:
+//			objectAddress = UNSAFE.getInt( array, off );
+//			break;
+//		case 8:
+//			objectAddress = UNSAFE.getLong( array, off );
+//			break;
+//		default:
+//			throw new Error( "unsupported address size: " + addressSize );
+//		}
+//
+//		System.out.println( "OK? " + addressSize + " " + objectAddress );
+//		return objectAddress;
+	}
+
 	public static OwningUnsafe create( final long sizeInBytes )
 	{
 		return new OwningUnsafe( sizeInBytes );
@@ -87,5 +111,12 @@ public class UnsafeUtil
 			if ( isValid() )
 				discard();
 		}
+	}
+
+	public static void main( final String[] args )
+	{
+		final float[] array = new float[] { 1, 2, 3 };
+		final long address = getFirstArrayElementAddress( array );
+		System.out.println( array[ 0 ] + " " + UNSAFE.getFloat( address ) + " " + UNSAFE.getFloat( array, 24l ) );
 	}
 }
