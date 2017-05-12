@@ -37,4 +37,9 @@ public class DoubleUnsafe extends AbstractStridedUnsafeLongAccess implements Dou
 		UnsafeUtil.UNSAFE.putDouble( getPosition( address, index ), value );
 	}
 
+	public long getAddres()
+	{
+		return address;
+	}
+
 }

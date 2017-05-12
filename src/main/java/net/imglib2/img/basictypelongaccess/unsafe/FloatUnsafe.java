@@ -37,4 +37,9 @@ public class FloatUnsafe extends AbstractStridedUnsafeLongAccess implements Floa
 		UnsafeUtil.UNSAFE.putFloat( getPosition( address, index ), value );
 	}
 
+	public long getAddres()
+	{
+		return address;
+	}
+
 }

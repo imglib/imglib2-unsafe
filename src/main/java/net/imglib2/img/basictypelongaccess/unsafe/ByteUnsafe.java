@@ -37,4 +37,9 @@ public class ByteUnsafe implements ByteLongAccess
 		UnsafeUtil.UNSAFE.putByte( address + index, value );
 	}
 
+	public long getAddres()
+	{
+		return address;
+	}
+
 }

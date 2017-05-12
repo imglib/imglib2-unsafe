@@ -37,4 +37,9 @@ public class IntUnsafe extends AbstractStridedUnsafeLongAccess implements IntLon
 		UnsafeUtil.UNSAFE.putInt( getPosition( address, index ), value );
 	}
 
+	public long getAddres()
+	{
+		return address;
+	}
+
 }
