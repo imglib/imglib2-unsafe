@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>imglib2-unsafe</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 
 	<name>ImgLib2 Unsafe</name>
 	<description>ImgLib2 data structures using Unsafe.</description>
@@ -61,7 +61,7 @@
 	<scm>
 		<connection>scm:git:git://github.com/imglib/imglib2-unsafe</connection>
 		<developerConnection>scm:git:git@github.com:imglib/imglib2-unsafe</developerConnection>
-		<tag>HEAD</tag>
+		<tag>imglib2-unsafe-0.0.1</tag>
 		<url>https://github.com/imglib/imglib2-unsafe</url>
 	</scm>
 	<issueManagement>
