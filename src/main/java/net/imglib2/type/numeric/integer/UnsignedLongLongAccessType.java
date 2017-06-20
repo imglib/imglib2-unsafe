@@ -274,7 +274,7 @@ public class UnsignedLongLongAccessType extends GenericLongLongAccessType< Unsig
 	 *
 	 * @param a
 	 * @param b
-	 * @return -1 if a < b, 0 if a == b, 1 if a > b.
+	 * @return -1 if {@code a < b}, 0 if {@code a == b}, 1 if {@code a > b}.
 	 */
 	static public final int compare( final long a, final long b )
 	{

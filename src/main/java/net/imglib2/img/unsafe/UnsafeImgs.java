@@ -107,7 +107,7 @@ final public class UnsafeImgs
 	{}
 
 	/**
-	 * Create an {@link UnsafeImg}<{@link UnsignedByteType}, {@link ByteArray}>.
+	 * Create an {@link UnsafeImg}&lt;{@link UnsignedByteType}, {@link ByteArray}&gt;.
 	 */
 	@SuppressWarnings( "unchecked" )
 	final static public UnsafeImg< UnsignedByteLongAccessType, OwningByteUnsafe > unsignedBytes( final long... dim )
@@ -116,7 +116,7 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Creates an {@link UnsafeImg}<{@link UnsignedByteType}, {@link ByteArray}>
+	 * Creates an {@link UnsafeImg}&lt;{@link UnsignedByteType}, {@link ByteArray}&gt;
 	 * reusing a passed byte[] array.
 	 */
 	final public static UnsafeImg< UnsignedByteLongAccessType, ByteLongAccess > unsignedBytes( final ByteLongAccess access, final long... dim )
@@ -128,8 +128,8 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Create an {@link UnsafeImg}<{@link ByteLongAccessType},
-	 * {@link ByteArray}>.
+	 * Create an {@link UnsafeImg}&lt;{@link ByteLongAccessType},
+	 * {@link ByteArray}&gt;.
 	 */
 	@SuppressWarnings( "unchecked" )
 	final static public UnsafeImg< ByteLongAccessType, OwningByteUnsafe > bytes( final long... dim )
@@ -138,8 +138,8 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Creates an {@link UnsafeImg}<{@link ByteLongAccessType},
-	 * {@link ByteArray}> reusing a passed byte[] array.
+	 * Creates an {@link UnsafeImg}&lt;{@link ByteLongAccessType},
+	 * {@link ByteArray}&gt; reusing a passed byte[] array.
 	 */
 	final public static UnsafeImg< ByteLongAccessType, ByteLongAccess > bytes( final ByteLongAccess access, final long... dim )
 	{
@@ -150,8 +150,8 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Create an {@link UnsafeImg}<{@link UnsignedShortType}, {@link ShortArray}
-	 * >.
+	 * Create an {@link UnsafeImg}&lt;{@link UnsignedShortType},
+	 * {@link ShortArray}&gt;.
 	 */
 	@SuppressWarnings( "unchecked" )
 	final static public UnsafeImg< UnsignedShortLongAccessType, OwningShortUnsafe > unsignedShorts( final long... dim )
@@ -160,8 +160,8 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Creates an {@link UnsafeImg}<{@link UnsignedShortType},
-	 * {@link ShortArray} > reusing a passed short[] array.
+	 * Creates an {@link UnsafeImg}&lt;{@link UnsignedShortType},
+	 * {@link ShortArray}&gt; reusing a passed short[] array.
 	 */
 	final public static UnsafeImg< UnsignedShortLongAccessType, ShortLongAccess > unsignedShorts( final ShortLongAccess access, final long... dim )
 	{
@@ -172,7 +172,7 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Create an {@link UnsafeImg}<{@link ShortType}, {@link ShortArray}>.
+	 * Create an {@link UnsafeImg}&lt;{@link ShortType}, {@link ShortArray}&gt;.
 	 */
 	@SuppressWarnings( "unchecked" )
 	final static public UnsafeImg< ShortLongAccessType, OwningShortUnsafe > shorts( final long... dim )
@@ -181,7 +181,7 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Creates an {@link UnsafeImg}<{@link ShortType}, {@link ShortArray}>
+	 * Creates an {@link UnsafeImg}&lt;{@link ShortType}, {@link ShortArray}&gt;
 	 * reusing a passed short[] array.
 	 */
 	final public static UnsafeImg< ShortLongAccessType, ShortLongAccess > shorts( final ShortLongAccess access, final long... dim )
@@ -193,7 +193,7 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Create an {@link UnsafeImg}<{@link UnsignedIntType}, {@link IntArray}>.
+	 * Create an {@link UnsafeImg}&lt;{@link UnsignedIntType}, {@link IntArray}&gt;.
 	 */
 	@SuppressWarnings( "unchecked" )
 	final static public UnsafeImg< UnsignedIntLongAccessType, OwningIntUnsafe > unsignedInts( final long... dim )
@@ -202,7 +202,7 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Creates an {@link UnsafeImg}<{@link UnsignedIntType}, {@link IntArray}>
+	 * Creates an {@link UnsafeImg}&lt;{@link UnsignedIntType}, {@link IntArray}&gt;
 	 * reusing a passed int[] array.
 	 */
 	final public static UnsafeImg< UnsignedIntLongAccessType, IntLongAccess > unsignedInts( final IntLongAccess access, final long... dim )
@@ -214,7 +214,7 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Create an {@link UnsafeImg}<{@link IntType}, {@link IntArray}>.
+	 * Create an {@link UnsafeImg}&lt;{@link IntType}, {@link IntArray}&gt;.
 	 */
 	@SuppressWarnings( "unchecked" )
 	final static public UnsafeImg< IntLongAccessType, IntArray > ints( final long... dim )
@@ -223,7 +223,7 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Creates an {@link UnsafeImg}<{@link IntType}, {@link IntArray}> reusing a
+	 * Creates an {@link UnsafeImg}&lt;{@link IntType}, {@link IntArray}&gt; reusing a
 	 * passed int[] array.
 	 */
 	final public static UnsafeImg< IntLongAccessType, IntLongAccess > ints( final IntLongAccess access, final long... dim )
@@ -235,7 +235,7 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Create an {@link UnsafeImg}<{@link LongType}, {@link LongArray}>.
+	 * Create an {@link UnsafeImg}&lt;{@link LongType}, {@link LongArray}&gt;.
 	 */
 	@SuppressWarnings( "unchecked" )
 	final static public UnsafeImg< UnsignedLongLongAccessType, OwningLongUnsafe > unsignedLongs( final long... dim )
@@ -244,7 +244,7 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Creates an {@link UnsafeImg}<{@link LongType}, {@link LongArray}> reusing
+	 * Creates an {@link UnsafeImg}&lt;{@link LongType}, {@link LongArray}&gt; reusing
 	 * a passed long[] array.
 	 */
 	final public static UnsafeImg< UnsignedLongLongAccessType, LongLongAccess > unsignedLongs( final LongLongAccess access, final long... dim )
@@ -256,7 +256,7 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Create an {@link UnsafeImg}<{@link LongType}, {@link LongArray}>.
+	 * Create an {@link UnsafeImg}&lt;{@link LongType}, {@link LongArray}&gt;.
 	 */
 	@SuppressWarnings( "unchecked" )
 	final static public UnsafeImg< LongLongAccessType, OwningLongUnsafe > longs( final long... dim )
@@ -265,7 +265,7 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Creates an {@link UnsafeImg}<{@link LongType}, {@link LongArray}> reusing
+	 * Creates an {@link UnsafeImg}&lt;{@link LongType}, {@link LongArray}&gt; reusing
 	 * a passed long[] array.
 	 */
 	final public static UnsafeImg< LongLongAccessType, LongLongAccess > longs( final LongLongAccess access, final long... dim )
@@ -277,7 +277,7 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Create an {@link UnsafeImg}<{@link FloatType}, {@link FloatArray}>.
+	 * Create an {@link UnsafeImg}&lt;{@link FloatType}, {@link FloatArray}&gt;.
 	 */
 	@SuppressWarnings( "unchecked" )
 	final static public UnsafeImg< FloatLongAccessType, OwningFloatUnsafe > floats( final long... dim )
@@ -286,7 +286,7 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Creates an {@link UnsafeImg}<{@link FloatType}, {@link FloatArray}>
+	 * Creates an {@link UnsafeImg}&lt;{@link FloatType}, {@link FloatArray}&gt;
 	 * reusing a passed float[] array.
 	 */
 	final public static UnsafeImg< FloatLongAccessType, FloatUnsafe > floats( final FloatUnsafe access, final long... dim )
@@ -298,7 +298,7 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Create an {@link UnsafeImg}<{@link DoubleType}, {@link DoubleArray}>.
+	 * Create an {@link UnsafeImg}&lt;{@link DoubleType}, {@link DoubleArray}&gt;.
 	 */
 	@SuppressWarnings( "unchecked" )
 	final static public UnsafeImg< DoubleLongAccessType, OwningDoubleUnsafe > doubles( final long... dim )
@@ -307,7 +307,7 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Creates an {@link UnsafeImg}<{@link DoubleType}, {@link DoubleArray}>
+	 * Creates an {@link UnsafeImg}&lt;{@link DoubleType}, {@link DoubleArray}&gt;
 	 * reusing a passed double[] array.
 	 */
 	final public static UnsafeImg< DoubleLongAccessType, DoubleUnsafe > doubles( final DoubleUnsafe access, final long... dim )
@@ -319,7 +319,7 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Create an {@link UnsafeImg}<{@link ARGBType}, {@link IntArray}>.
+	 * Create an {@link UnsafeImg}&lt;{@link ARGBType}, {@link IntArray}&gt;.
 	 */
 	@SuppressWarnings( "unchecked" )
 	final static public UnsafeImg< ARGBLongAccessType, OwningIntUnsafe > argbs( final long... dim )
@@ -328,7 +328,7 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Creates an {@link UnsafeImg}<{@link ARGBType}, {@link IntArray}> reusing
+	 * Creates an {@link UnsafeImg}&lt;{@link ARGBType}, {@link IntArray}&gt; reusing
 	 * a passed int[] array.
 	 */
 	final public static UnsafeImg< ARGBLongAccessType, IntLongAccess > argbs( final IntLongAccess access, final long... dim )
@@ -342,8 +342,8 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Create an {@link UnsafeImg}<{@link ComplexFloatType},
-	 * {@link FloatArray}>.
+	 * Create an {@link UnsafeImg}&lt;{@link ComplexFloatType},
+	 * {@link FloatArray}&gt;.
 	 */
 	@SuppressWarnings( "unchecked" )
 	final static public UnsafeImg< ComplexFloatLongAccessType, FloatLongAccess > complexFloats( final long... dim )
@@ -352,7 +352,7 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Creates an {@link UnsafeImg}<{@link FloatType}, {@link FloatArray}>
+	 * Creates an {@link UnsafeImg}&lt;{@link FloatType}, {@link FloatArray}&gt;
 	 * reusing a passed float[] array.
 	 */
 	final public static UnsafeImg< ComplexFloatLongAccessType, FloatLongAccess > complexFloats( final FloatLongAccess access, final long... dim )
@@ -364,8 +364,8 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Create an {@link UnsafeImg}<{@link ComplexDoubleType},
-	 * {@link DoubleArray} >.
+	 * Create an {@link UnsafeImg}&lt;{@link ComplexDoubleType},
+	 * {@link DoubleArray}&gt;.
 	 */
 	@SuppressWarnings( "unchecked" )
 	final static public UnsafeImg< ComplexDoubleLongAccessType, DoubleLongAccess > complexDoubles( final long... dim )
@@ -374,7 +374,7 @@ final public class UnsafeImgs
 	}
 
 	/**
-	 * Creates an {@link UnsafeImg}<{@link DoubleType}, {@link DoubleArray}>
+	 * Creates an {@link UnsafeImg}&lt;{@link DoubleType}, {@link DoubleArray}&gt;
 	 * reusing a passed double[] array.
 	 */
 	final public static UnsafeImg< ComplexDoubleLongAccessType, DoubleLongAccess > complexDoubles( final DoubleLongAccess access, final long... dim )
