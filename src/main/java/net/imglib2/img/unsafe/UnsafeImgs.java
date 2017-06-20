@@ -54,6 +54,7 @@ import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningFloatUnsafe;
 import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningIntUnsafe;
 import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningLongUnsafe;
 import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningShortUnsafe;
+import net.imglib2.type.Type;
 import net.imglib2.type.numeric.ARGBLongAccessType;
 import net.imglib2.type.numeric.ARGBType;
 import net.imglib2.type.numeric.complex.ComplexDoubleLongAccessType;
@@ -92,7 +93,7 @@ import net.imglib2.util.Fraction;
  *
  * <p>
  * For pixel {@link Type}s T not present in this collection, use the generic
- * {@link UnsafeImgFactory#create(long[], net.imglib2.type.NativeType)}, e.g.
+ * {@link UnsafeImgFactory#create(long[], net.imglib2.type.NativeLongAccessType)}, e.g.
  * </p>
  *
  * <pre>

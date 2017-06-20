@@ -35,6 +35,7 @@
 package net.imglib2.type;
 
 import net.imglib2.Cursor;
+import net.imglib2.RandomAccess;
 import net.imglib2.img.NativeImg;
 import net.imglib2.img.NativeLongAccessImg;
 import net.imglib2.img.NativeLongAccessImgFactory;
@@ -43,17 +44,17 @@ import net.imglib2.img.cell.CellImg;
 import net.imglib2.util.Fraction;
 
 /**
- * A {@link NativeTLongAccessype} is a {@link Type} that that provides access to
+ * A {@link NativeLongAccessType} is a {@link Type} that that provides access to
  * data stored in Java primitive arrays. To this end, implementations maintain a
  * reference to the current storage array and the index of an element in that
  * array.
  *
- * The {@link NativeTLongAccessype} is positioned on the correct storage array
+ * The {@link NativeLongAccessType} is positioned on the correct storage array
  * and index by accessors ({@link Cursor Cursors} and {@link RandomAccess
  * RandomAccesses} ).
  *
  * <p>
- * The {@link NativeTLongAccessype} is the only class that is aware of the
+ * The {@link NativeLongAccessType} is the only class that is aware of the
  * actual data type, i.e., which Java primitive type is used to store the data.
  * On the other hand it does not know the storage layout, i.e., how
  * n-dimensional pixel coordinates map to indices in the current array. It also
@@ -71,7 +72,7 @@ import net.imglib2.util.Fraction;
 public interface NativeLongAccessType< T extends NativeLongAccessType< T > > extends Type< T >
 {
 	/**
-	 * The {@link NativeTLongAccessype} creates the {@link NativeLongAccessImg}
+	 * The {@link NativeLongAccessType} creates the {@link NativeLongAccessImg}
 	 * used for storing image data; based on the given storage strategy and its
 	 * size. It basically only decides here which BasicType it uses (float, int,
 	 * byte, bit, ...) and how many entities per pixel it needs (e.g. 2 floats
@@ -93,7 +94,7 @@ public interface NativeLongAccessType< T extends NativeLongAccessType< T > > ext
 	 *
 	 * <p>
 	 * This is used by accessors (e.g., a {@link Cursor}) to position the
-	 * {@link NativeTLongAccessype} in the container.
+	 * {@link NativeLongAccessType} in the container.
 	 *
 	 * @param i
 	 *            the new array index
@@ -105,7 +106,7 @@ public interface NativeLongAccessType< T extends NativeLongAccessType< T > > ext
 	 *
 	 * <p>
 	 * This is used by accessors (e.g., a {@link Cursor}) to position the
-	 * {@link NativeTLongAccessype} in the container.
+	 * {@link NativeLongAccessType} in the container.
 	 *
 	 * @return the current index into the underlying data array
 	 */
@@ -116,12 +117,12 @@ public interface NativeLongAccessType< T extends NativeLongAccessType< T > > ext
 	public void decIndex();
 
 	/**
-	 * Increases the index into the current data array by {@link increment}
+	 * Increases the index into the current data array by {@code increment}
 	 * steps.
 	 *
 	 * <p>
 	 * This is used by accessors (e.g., a {@link Cursor}) to position the
-	 * {@link NativeTLongAccessype} in the container.
+	 * {@link NativeLongAccessType} in the container.
 	 *
 	 * @param increment
 	 *            how many steps
@@ -129,12 +130,12 @@ public interface NativeLongAccessType< T extends NativeLongAccessType< T > > ext
 	public void incIndex( final long increment );
 
 	/**
-	 * Decrease the index into the current data array by {@link decrement}
+	 * Decrease the index into the current data array by {@code decrement}
 	 * steps.
 	 *
 	 * <p>
 	 * This is used by accessors (e.g., a {@link Cursor}) to position the
-	 * {@link NativeTLongAccessype} in the container.
+	 * {@link NativeLongAccessType} in the container.
 	 *
 	 * @param decrement
 	 *            how many steps

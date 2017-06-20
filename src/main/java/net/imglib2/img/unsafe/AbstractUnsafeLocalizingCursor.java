@@ -35,6 +35,7 @@
 package net.imglib2.img.unsafe;
 
 import net.imglib2.AbstractLocalizingCursor;
+import net.imglib2.Cursor;
 import net.imglib2.type.NativeLongAccessType;
 import net.imglib2.util.IntervalIndexer;
 

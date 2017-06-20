@@ -97,7 +97,7 @@ public class UnsignedLongLongAccessType extends GenericLongLongAccessType< Unsig
 	}
 
 	/**
-	 * Unsigned division of {@param d1} by {@param d2}.
+	 * Unsigned division of {@code d1} by {@code d2}.
 	 *
 	 * See "Division by Invariant Integers using Multiplication", by Torbjorn
 	 * Granlund and Peter L. Montgomery, 1994.
@@ -180,7 +180,7 @@ public class UnsignedLongLongAccessType extends GenericLongLongAccessType< Unsig
 
 	/**
 	 * This method returns the value of the UnsignedLongType as a signed long.
-	 * To get the unsigned value, use {@link UnsignedLongType#getAsBigInteger()}
+	 * To get the unsigned value, use {@link UnsignedLongType#getBigInteger()}
 	 * .
 	 */
 	public long get()

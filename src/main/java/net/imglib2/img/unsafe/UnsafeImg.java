@@ -65,10 +65,9 @@ public class UnsafeImg< T extends NativeLongAccessType< T >, A > extends Abstrac
 	final private A data;
 
 	/**
-	 * TODO check for the size of numPixels being < Integer.MAX_VALUE? TODO Type
-	 * is suddenly not necessary anymore
+	 * TODO check for the size of numPixels being {@code < Integer.MAX_VALUE}?
+	 * TODO Type is suddenly not necessary anymore
 	 *
-	 * @param factory
 	 * @param data
 	 * @param dim
 	 * @param entitiesPerPixel
