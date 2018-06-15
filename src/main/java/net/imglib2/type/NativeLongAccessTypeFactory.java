@@ -35,7 +35,6 @@ package net.imglib2.type;
 
 import java.util.function.Function;
 
-import net.imglib2.img.NativeImg;
 import net.imglib2.img.NativeLongAccessImg;
 import net.imglib2.img.basictypelongaccess.ByteLongAccess;
 import net.imglib2.img.basictypelongaccess.CharLongAccess;
@@ -46,24 +45,25 @@ import net.imglib2.img.basictypelongaccess.LongLongAccess;
 import net.imglib2.img.basictypelongaccess.ShortLongAccess;
 
 /**
- * {@code NativeTypeFactory} is used to {@link #createLinkedType(NativeImg)
- * create} a linked type {@code T} for a matching {@link NativeImg}.
+ * {@code NativeLongAccessTypeFactory} is used to
+ * {@link #createLinkedType(NativeLongAccessImg) create} a linked type {@code T}
+ * for a matching {@link NativeLongAccessImg}.
  * <p>
  * It also {@link #getPrimitiveType() provides} information about the primitive
  * java type that backs the type {@code T}.
  * <p>
- * {@code NativeTypeFactory} binds a {code PrimitiveType} enum constant to a
- * {@code Access} interface ({@code ByteAccess}, {@code DoubleAccess}, and so
- * on). Instances can only be constructed via static methods
- * {@link #BYTE(Function)}, {@link #DOUBLE(Function)}, etc. to prevent
- * non-matching combinations of {@code Access} interface and
+ * {@code NativeLongAccessTypeFactory} binds a {code PrimitiveType} enum
+ * constant to a {@code Access} interface ({@code ByteAccess},
+ * {@code DoubleAccess}, and so on). Instances can only be constructed via
+ * static methods {@link #BYTE(Function)}, {@link #DOUBLE(Function)}, etc. to
+ * prevent non-matching combinations of {@code Access} interface and
  * {@link PrimitiveType} constant.
  *
  * @param <T>
- *            the {@link NativeType} this is attached to
+ *            the {@link NativeLongAccessType} this is attached to
  * @param <A>
- *            the {@code Access} family ({@code ByteAccess},
- *            {@code DoubleAccess}, and so on)
+ *            the {@code LongAccess} family ({@code ByteLongAccess},
+ *            {@code DoubleLongAccess}, and so on)
  *
  * @author Tobias Pietzsch
  */
