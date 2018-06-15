@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import net.imglib2.img.NativeLongAccessImg;
 import net.imglib2.img.NativeLongAccessImgFactory;
 import net.imglib2.img.basictypelongaccess.ShortLongAccess;
+import net.imglib2.type.NativeLongAccessTypeFactory;
 import net.imglib2.util.Fraction;
 import net.imglib2.util.Util;
 
@@ -37,9 +38,13 @@ public class UnsignedShortLongAccessType extends GenericShortLongAccessType< Uns
 	public static short getCodedSignedShortChecked( int unsignedShort )
 	{
 		if ( unsignedShort < 0 )
+		{
 			unsignedShort = 0;
+		}
 		else if ( unsignedShort > 65535 )
+		{
 			unsignedShort = 65535;
+		}
 
 		return getCodedSignedShort( unsignedShort );
 	}
@@ -195,11 +200,17 @@ public class UnsignedShortLongAccessType extends GenericShortLongAccessType< Uns
 		final int b = c.get();
 
 		if ( a > b )
+		{
 			return 1;
+		}
 		else if ( a < b )
+		{
 			return -1;
+		}
 		else
+		{
 			return 0;
+		}
 	}
 
 	@Override
@@ -219,4 +230,13 @@ public class UnsignedShortLongAccessType extends GenericShortLongAccessType< Uns
 	{
 		return "" + get();
 	}
+
+	private static final NativeLongAccessTypeFactory< UnsignedShortLongAccessType, ? > TYPE_FACTORY = NativeLongAccessTypeFactory.SHORT( UnsignedShortLongAccessType::new );
+
+	@Override
+	public NativeLongAccessTypeFactory< UnsignedShortLongAccessType, ? > getNativeLongAccessTypeFactory()
+	{
+		return TYPE_FACTORY;
+	}
+
 }

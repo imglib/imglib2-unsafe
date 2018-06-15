@@ -6,6 +6,7 @@ import net.imglib2.img.basictypeaccess.array.IntArray;
 import net.imglib2.img.basictypelongaccess.IntLongAccess;
 import net.imglib2.img.basictypelongaccess.wrapped.WrappedIntLongAccess;
 import net.imglib2.type.AbstractNativeLongAccessType;
+import net.imglib2.type.NativeLongAccessTypeFactory;
 import net.imglib2.util.Fraction;
 import net.imglib2.util.Util;
 
@@ -213,4 +214,13 @@ public class ARGBLongAccessType extends AbstractNativeLongAccessType< ARGBLongAc
 	{
 		return get() == t.get();
 	}
+
+	private static final NativeLongAccessTypeFactory< ARGBLongAccessType, ? > TYPE_FACTORY = NativeLongAccessTypeFactory.INT( ARGBLongAccessType::new );
+
+	@Override
+	public NativeLongAccessTypeFactory< ARGBLongAccessType, ? > getNativeLongAccessTypeFactory()
+	{
+		return TYPE_FACTORY;
+	}
+
 }

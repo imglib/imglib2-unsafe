@@ -6,6 +6,7 @@ import net.imglib2.img.basictypeaccess.array.FloatArray;
 import net.imglib2.img.basictypelongaccess.FloatLongAccess;
 import net.imglib2.img.basictypelongaccess.wrapped.WrappedFloatLongAccess;
 import net.imglib2.type.NativeLongAccessType;
+import net.imglib2.type.NativeLongAccessTypeFactory;
 import net.imglib2.util.Fraction;
 
 public class ComplexFloatLongAccessType extends AbstractComplexType< ComplexFloatLongAccessType > implements NativeLongAccessType< ComplexFloatLongAccessType >
@@ -261,5 +262,13 @@ public class ComplexFloatLongAccessType extends AbstractComplexType< ComplexFloa
 	{
 		return getRealFloat() == t.getRealFloat() &&
 				getImaginaryFloat() == t.getImaginaryFloat();
+	}
+
+	private static final NativeLongAccessTypeFactory< ComplexFloatLongAccessType, ? > TYPE_FACTORY = NativeLongAccessTypeFactory.FLOAT( ComplexFloatLongAccessType::new );
+
+	@Override
+	public NativeLongAccessTypeFactory< ComplexFloatLongAccessType, ? > getNativeLongAccessTypeFactory()
+	{
+		return TYPE_FACTORY;
 	}
 }

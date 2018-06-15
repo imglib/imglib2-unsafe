@@ -164,4 +164,7 @@ public interface NativeLongAccessType< T extends NativeLongAccessType< T > > ext
 	public T duplicateTypeOnSameNativeImg();
 
 	public void updateContainer( Object c );
+
+	public NativeLongAccessTypeFactory< T, ? > getNativeLongAccessTypeFactory();
+
 }

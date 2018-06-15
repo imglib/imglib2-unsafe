@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import net.imglib2.img.NativeLongAccessImg;
 import net.imglib2.img.NativeLongAccessImgFactory;
 import net.imglib2.img.basictypelongaccess.LongLongAccess;
+import net.imglib2.type.NativeLongAccessTypeFactory;
 import net.imglib2.util.Fraction;
 import net.imglib2.util.Util;
 
@@ -109,13 +110,19 @@ public class UnsignedLongLongAccessType extends GenericLongLongAccessType< Unsig
 	static public final long divide( final long d1, final long d2 )
 	{
 		if ( d2 < 0 )
+		{
 			// d2 is larger than the maximum signed long value
 			if ( -1 == compare( d1, d2 ) )
+			{
 				// d1 is smaller than d2
 				return 0;
+			}
 			else
+			{
 				// d1 is larger or equal than d2
 				return 1;
+			}
+		}
 
 		if ( d1 < 0 )
 		{
@@ -180,8 +187,7 @@ public class UnsignedLongLongAccessType extends GenericLongLongAccessType< Unsig
 
 	/**
 	 * This method returns the value of the UnsignedLongType as a signed long.
-	 * To get the unsigned value, use {@link UnsignedLongType#getBigInteger()}
-	 * .
+	 * To get the unsigned value, use {@link UnsignedLongType#getBigInteger()} .
 	 */
 	public long get()
 	{
@@ -279,12 +285,16 @@ public class UnsignedLongLongAccessType extends GenericLongLongAccessType< Unsig
 	static public final int compare( final long a, final long b )
 	{
 		if ( a == b )
+		{
 			return 0;
+		}
 		else
 		{
 			boolean test = a < b;
 			if ( a < 0 != b < 0 )
+			{
 				test = !test;
+			}
 			return test ? -1 : 1;
 		}
 	}
@@ -300,4 +310,13 @@ public class UnsignedLongLongAccessType extends GenericLongLongAccessType< Unsig
 	{
 		return new UnsignedLongLongAccessType( get() );
 	}
+
+	private static final NativeLongAccessTypeFactory< UnsignedLongLongAccessType, ? > TYPE_FACTORY = NativeLongAccessTypeFactory.LONG( UnsignedLongLongAccessType::new );
+
+	@Override
+	public NativeLongAccessTypeFactory< UnsignedLongLongAccessType, ? > getNativeLongAccessTypeFactory()
+	{
+		return TYPE_FACTORY;
+	}
+
 }

@@ -2,17 +2,22 @@ package net.imglib2.img.basictypelongaccess.unsafe.owning;
 
 import net.imglib2.img.basictypelongaccess.LongLongAccess;
 import net.imglib2.img.basictypelongaccess.unsafe.LongUnsafe;
+import net.imglib2.img.basictypelongaccess.unsafe.UnsafeAccess;
 import net.imglib2.img.basictypelongaccess.unsafe.UnsafeUtil;
+import net.imglib2.type.PrimitiveType;
 
-public class OwningLongUnsafe extends AbstractOwningUnsafe implements LongLongAccess
+public class OwningLongUnsafe extends AbstractOwningUnsafe implements LongLongAccess, UnsafeAccess< OwningLongUnsafe >
 {
 
 	private final LongUnsafe unsafe;
 
-	public OwningLongUnsafe( final long numEntitites )
+	private final long numEntities;
+
+	public OwningLongUnsafe( final long numEntities )
 	{
-		super( UnsafeUtil.create( numEntitites * Integer.BYTES ) );
+		super( UnsafeUtil.create( numEntities * Integer.BYTES ) );
 		this.unsafe = new LongUnsafe( owner.getAddress() );
+		this.numEntities = numEntities;
 	}
 
 	@Override
@@ -37,6 +42,24 @@ public class OwningLongUnsafe extends AbstractOwningUnsafe implements LongLongAc
 	public void setValue( final long index, final long value )
 	{
 		unsafe.setValue( index, value );
+	}
+
+	@Override
+	public OwningLongUnsafe createAccess( final long numEntities )
+	{
+		return new OwningLongUnsafe( numEntities );
+	}
+
+	@Override
+	public PrimitiveType getType()
+	{
+		return PrimitiveType.LONG;
+	}
+
+	@Override
+	public long getSize()
+	{
+		return numEntities;
 	}
 
 }

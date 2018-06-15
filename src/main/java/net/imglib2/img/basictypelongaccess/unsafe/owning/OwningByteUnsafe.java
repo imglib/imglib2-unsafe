@@ -2,17 +2,22 @@ package net.imglib2.img.basictypelongaccess.unsafe.owning;
 
 import net.imglib2.img.basictypelongaccess.ByteLongAccess;
 import net.imglib2.img.basictypelongaccess.unsafe.ByteUnsafe;
+import net.imglib2.img.basictypelongaccess.unsafe.UnsafeAccess;
 import net.imglib2.img.basictypelongaccess.unsafe.UnsafeUtil;
+import net.imglib2.type.PrimitiveType;
 
-public class OwningByteUnsafe extends AbstractOwningUnsafe implements ByteLongAccess
+public class OwningByteUnsafe extends AbstractOwningUnsafe implements ByteLongAccess, UnsafeAccess< OwningByteUnsafe >
 {
 
 	private final ByteUnsafe unsafe;
+
+	private final long numEntitites;
 
 	public OwningByteUnsafe( final long numEntities )
 	{
 		super( UnsafeUtil.create( numEntities ) );
 		this.unsafe = new ByteUnsafe( owner.getAddress() );
+		this.numEntitites = numEntities;
 	}
 
 	@Override
@@ -37,6 +42,24 @@ public class OwningByteUnsafe extends AbstractOwningUnsafe implements ByteLongAc
 	public void setValue( final long index, final byte value )
 	{
 		unsafe.setValue( index, value );
+	}
+
+	@Override
+	public OwningByteUnsafe createAccess( final long numEntities )
+	{
+		return new OwningByteUnsafe( numEntities );
+	}
+
+	@Override
+	public PrimitiveType getType()
+	{
+		return PrimitiveType.BYTE;
+	}
+
+	@Override
+	public long getSize()
+	{
+		return this.numEntitites;
 	}
 
 }

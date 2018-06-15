@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import net.imglib2.img.NativeLongAccessImg;
 import net.imglib2.img.NativeLongAccessImgFactory;
 import net.imglib2.img.basictypelongaccess.IntLongAccess;
+import net.imglib2.type.NativeLongAccessTypeFactory;
 import net.imglib2.util.Fraction;
 import net.imglib2.util.Util;
 
@@ -38,9 +39,13 @@ public class UnsignedIntLongAccessType extends GenericIntLongAccessType< Unsigne
 	public static int getCodedSignedIntChecked( long unsignedInt )
 	{
 		if ( unsignedInt < 0 )
+		{
 			unsignedInt = 0;
+		}
 		else if ( unsignedInt > 0xffffffffL )
+		{
 			unsignedInt = 0xffffffffL;
+		}
 
 		return getCodedSignedInt( unsignedInt );
 	}
@@ -224,6 +229,14 @@ public class UnsignedIntLongAccessType extends GenericIntLongAccessType< Unsigne
 	public UnsignedIntLongAccessType copy()
 	{
 		return new UnsignedIntLongAccessType( get() );
+	}
+
+	private static final NativeLongAccessTypeFactory< UnsignedIntLongAccessType, ? > TYPE_FACTORY = NativeLongAccessTypeFactory.INT( UnsignedIntLongAccessType::new );
+
+	@Override
+	public NativeLongAccessTypeFactory< UnsignedIntLongAccessType, ? > getNativeLongAccessTypeFactory()
+	{
+		return TYPE_FACTORY;
 	}
 
 }

@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import net.imglib2.img.NativeLongAccessImg;
 import net.imglib2.img.NativeLongAccessImgFactory;
 import net.imglib2.img.basictypelongaccess.ByteLongAccess;
+import net.imglib2.type.NativeLongAccessTypeFactory;
 import net.imglib2.util.Fraction;
 import net.imglib2.util.Util;
 
@@ -37,9 +38,13 @@ public class UnsignedByteLongAccessType extends GenericByteLongAccessType< Unsig
 	public static byte getCodedSignedByteChecked( int unsignedByte )
 	{
 		if ( unsignedByte < 0 )
+		{
 			unsignedByte = 0;
+		}
 		else if ( unsignedByte > 255 )
+		{
 			unsignedByte = 255;
+		}
 
 		return getCodedSignedByte( unsignedByte );
 	}
@@ -201,4 +206,13 @@ public class UnsignedByteLongAccessType extends GenericByteLongAccessType< Unsig
 	{
 		return "" + get();
 	}
+
+	private static final NativeLongAccessTypeFactory< UnsignedByteLongAccessType, ? > TYPE_FACTORY = NativeLongAccessTypeFactory.BYTE( UnsignedByteLongAccessType::new );
+
+	@Override
+	public NativeLongAccessTypeFactory< UnsignedByteLongAccessType, ? > getNativeLongAccessTypeFactory()
+	{
+		return TYPE_FACTORY;
+	}
+
 }

@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import net.imglib2.img.NativeLongAccessImg;
 import net.imglib2.img.NativeLongAccessImgFactory;
 import net.imglib2.img.basictypelongaccess.ByteLongAccess;
+import net.imglib2.type.NativeLongAccessTypeFactory;
 import net.imglib2.util.Fraction;
 
 public class ByteLongAccessType extends GenericByteLongAccessType< ByteLongAccessType >
@@ -122,5 +123,13 @@ public class ByteLongAccessType extends GenericByteLongAccessType< ByteLongAcces
 	public ByteLongAccessType copy()
 	{
 		return new ByteLongAccessType( getValue() );
+	}
+
+	private static final NativeLongAccessTypeFactory< ByteLongAccessType, ? > TYPE_FACTORY = NativeLongAccessTypeFactory.BYTE( ByteLongAccessType::new );
+
+	@Override
+	public NativeLongAccessTypeFactory< ByteLongAccessType, ? > getNativeLongAccessTypeFactory()
+	{
+		return TYPE_FACTORY;
 	}
 }

@@ -6,6 +6,7 @@ import net.imglib2.img.basictypeaccess.array.DoubleArray;
 import net.imglib2.img.basictypelongaccess.DoubleLongAccess;
 import net.imglib2.img.basictypelongaccess.wrapped.WrappedDoubleLongAccess;
 import net.imglib2.type.NativeLongAccessType;
+import net.imglib2.type.NativeLongAccessTypeFactory;
 import net.imglib2.util.Fraction;
 
 public class ComplexDoubleLongAccessType extends AbstractComplexType< ComplexDoubleLongAccessType > implements NativeLongAccessType< ComplexDoubleLongAccessType >
@@ -207,5 +208,13 @@ public class ComplexDoubleLongAccessType extends AbstractComplexType< ComplexDou
 	{
 		return getRealDouble() == t.getRealDouble() &&
 				getImaginaryDouble() == t.getImaginaryDouble();
+	}
+
+	private static final NativeLongAccessTypeFactory< ComplexDoubleLongAccessType, ? > TYPE_FACTORY = NativeLongAccessTypeFactory.DOUBLE( ComplexDoubleLongAccessType::new );
+
+	@Override
+	public NativeLongAccessTypeFactory< ComplexDoubleLongAccessType, ? > getNativeLongAccessTypeFactory()
+	{
+		return TYPE_FACTORY;
 	}
 }

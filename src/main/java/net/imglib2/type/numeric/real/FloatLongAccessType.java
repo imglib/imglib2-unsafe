@@ -6,6 +6,7 @@ import net.imglib2.img.basictypeaccess.array.FloatArray;
 import net.imglib2.img.basictypelongaccess.FloatLongAccess;
 import net.imglib2.img.basictypelongaccess.wrapped.WrappedFloatLongAccess;
 import net.imglib2.type.NativeLongAccessType;
+import net.imglib2.type.NativeLongAccessTypeFactory;
 import net.imglib2.util.Fraction;
 
 public class FloatLongAccessType extends AbstractRealType< FloatLongAccessType > implements NativeLongAccessType< FloatLongAccessType >
@@ -193,4 +194,13 @@ public class FloatLongAccessType extends AbstractRealType< FloatLongAccessType >
 	{
 		i -= decrement;
 	}
+
+	private static final NativeLongAccessTypeFactory< FloatLongAccessType, ? > TYPE_FACTORY = NativeLongAccessTypeFactory.FLOAT( FloatLongAccessType::new );
+
+	@Override
+	public NativeLongAccessTypeFactory< FloatLongAccessType, ? > getNativeLongAccessTypeFactory()
+	{
+		return TYPE_FACTORY;
+	}
+
 }

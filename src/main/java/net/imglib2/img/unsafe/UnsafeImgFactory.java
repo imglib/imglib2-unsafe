@@ -38,6 +38,9 @@ import net.imglib2.exception.IncompatibleTypeException;
 import net.imglib2.img.AbstractImg;
 import net.imglib2.img.ImgFactory;
 import net.imglib2.img.NativeLongAccessImgFactory;
+import net.imglib2.img.array.ArrayImgFactory;
+import net.imglib2.img.basictypeaccess.array.ArrayDataAccess;
+import net.imglib2.img.basictypelongaccess.unsafe.UnsafeAccessFactory;
 import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningByteUnsafe;
 import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningCharUnsafe;
 import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningDoubleUnsafe;
@@ -46,6 +49,7 @@ import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningIntUnsafe;
 import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningLongUnsafe;
 import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningShortUnsafe;
 import net.imglib2.type.NativeLongAccessType;
+import net.imglib2.type.NativeLongAccessTypeFactory;
 import net.imglib2.type.NativeType;
 import net.imglib2.util.Fraction;
 
@@ -58,6 +62,18 @@ import net.imglib2.util.Fraction;
  */
 public class UnsafeImgFactory< T extends NativeLongAccessType< T > > extends NativeLongAccessImgFactory< T >
 {
+
+	public UnsafeImgFactory( final T t )
+	{
+		super( t );
+	}
+
+	@Deprecated
+	public UnsafeImgFactory()
+	{
+		this( null );
+	}
+
 	@Override
 	public UnsafeImg< T, ? > create( final long[] dim, final T type )
 	{
@@ -130,8 +146,28 @@ public class UnsafeImgFactory< T extends NativeLongAccessType< T > > extends Nat
 	@Override
 	public < S > ImgFactory< S > imgFactory( final S type ) throws IncompatibleTypeException
 	{
-		if ( NativeType.class.isInstance( type ) )
-			return new UnsafeImgFactory();
+		if ( NativeType.class.isInstance( type ) ) { return new UnsafeImgFactory(); }
 		throw new IncompatibleTypeException( this, type.getClass().getCanonicalName() + " does not implement NativeType." );
+	}
+
+	@Override
+	public UnsafeImg< T, ? > create( final long... dimensions )
+	{
+		@SuppressWarnings( { "unchecked", "rawtypes" } )
+		final UnsafeImg< T, ? > img = create( dimensions, type(), ( NativeLongAccessTypeFactory ) type().getNativeLongAccessTypeFactory() );
+		return img;
+	}
+
+	private < A extends ArrayDataAccess< A > > UnsafeImg< T, A > create(
+			final long[] dimensions,
+			final T type,
+			final NativeLongAccessTypeFactory< T, A > typeFactory )
+	{
+		final Fraction entitiesPerPixel = type.getEntitiesPerPixel();
+		final int numEntities = ArrayImgFactory.numEntitiesRangeCheck( dimensions, entitiesPerPixel );
+		final A data = UnsafeAccessFactory.get( typeFactory ).createArray( numEntities );
+		final UnsafeImg< T, A > img = new UnsafeImg<>( data, dimensions, entitiesPerPixel );
+		img.setLinkedType( typeFactory.createLinkedType( img ) );
+		return img;
 	}
 }

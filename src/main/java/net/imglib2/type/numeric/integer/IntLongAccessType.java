@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import net.imglib2.img.NativeLongAccessImg;
 import net.imglib2.img.NativeLongAccessImgFactory;
 import net.imglib2.img.basictypelongaccess.IntLongAccess;
+import net.imglib2.type.NativeLongAccessTypeFactory;
 
 public class IntLongAccessType extends GenericIntLongAccessType< IntLongAccessType >
 {
@@ -116,6 +117,14 @@ public class IntLongAccessType extends GenericIntLongAccessType< IntLongAccessTy
 		final IntLongAccessType linkedType = new IntLongAccessType( img );
 		img.setLinkedType( linkedType );
 		return img;
+	}
+
+	private static final NativeLongAccessTypeFactory< IntLongAccessType, ? > TYPE_FACTORY = NativeLongAccessTypeFactory.INT( IntLongAccessType::new );
+
+	@Override
+	public NativeLongAccessTypeFactory< IntLongAccessType, ? > getNativeLongAccessTypeFactory()
+	{
+		return TYPE_FACTORY;
 	}
 
 }
