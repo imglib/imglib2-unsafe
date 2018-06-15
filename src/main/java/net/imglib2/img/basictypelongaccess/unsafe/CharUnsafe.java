@@ -7,10 +7,18 @@ public class CharUnsafe extends AbstractStridedUnsafeLongAccess implements CharL
 
 	private final long address;
 
+	private final Object ownerReference;
+
 	public CharUnsafe( final long address )
+	{
+		this( address, null );
+	}
+
+	public CharUnsafe( final long address, final Object ownerReference )
 	{
 		super( Character.BYTES );
 		this.address = address;
+		this.ownerReference = ownerReference;
 	}
 
 	@Override

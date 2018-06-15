@@ -7,10 +7,18 @@ public class ByteUnsafe implements ByteLongAccess
 
 	private final long address;
 
+	private final Object ownerReference;
+
 	public ByteUnsafe( final long address )
+	{
+		this( address, null );
+	}
+
+	public ByteUnsafe( final long address, final Object ownerReference )
 	{
 		super();
 		this.address = address;
+		this.ownerReference = ownerReference;
 	}
 
 	@Override

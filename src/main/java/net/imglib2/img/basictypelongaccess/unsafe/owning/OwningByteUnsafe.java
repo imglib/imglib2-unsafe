@@ -16,7 +16,7 @@ public class OwningByteUnsafe extends AbstractOwningUnsafe implements ByteLongAc
 	public OwningByteUnsafe( final long numEntities )
 	{
 		super( UnsafeUtil.create( numEntities ) );
-		this.unsafe = new ByteUnsafe( owner.getAddress() );
+		this.unsafe = new ByteUnsafe( owner.getAddress(), this );
 		this.numEntitites = numEntities;
 	}
 

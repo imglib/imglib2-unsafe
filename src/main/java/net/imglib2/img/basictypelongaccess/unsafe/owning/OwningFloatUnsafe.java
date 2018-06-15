@@ -16,7 +16,7 @@ public class OwningFloatUnsafe extends AbstractOwningUnsafe implements FloatLong
 	public OwningFloatUnsafe( final long numEntitites )
 	{
 		super( UnsafeUtil.create( numEntitites * Float.BYTES ) );
-		this.unsafe = new FloatUnsafe( owner.getAddress() );
+		this.unsafe = new FloatUnsafe( owner.getAddress(), this );
 		this.numEntities = numEntitites;
 	}
 

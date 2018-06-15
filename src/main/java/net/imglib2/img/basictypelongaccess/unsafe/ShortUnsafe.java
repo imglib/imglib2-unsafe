@@ -7,10 +7,18 @@ public class ShortUnsafe extends AbstractStridedUnsafeLongAccess implements Shor
 
 	private final long address;
 
+	private final Object ownerReference;
+
 	public ShortUnsafe( final long address )
+	{
+		this( address, null );
+	}
+
+	public ShortUnsafe( final long address, final Object ownerReference )
 	{
 		super( Short.BYTES );
 		this.address = address;
+		this.ownerReference = ownerReference;
 	}
 
 	@Override

@@ -7,10 +7,18 @@ public class FloatUnsafe extends AbstractStridedUnsafeLongAccess implements Floa
 
 	private final long address;
 
+	private final Object ownerReference;
+
 	public FloatUnsafe( final long address )
+	{
+		this( address, null );
+	}
+
+	public FloatUnsafe( final long address, final Object ownerReference )
 	{
 		super( Float.BYTES );
 		this.address = address;
+		this.ownerReference = ownerReference;
 	}
 
 	@Override

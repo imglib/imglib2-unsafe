@@ -7,10 +7,18 @@ public class IntUnsafe extends AbstractStridedUnsafeLongAccess implements IntLon
 
 	private final long address;
 
+	private final Object ownerReference;
+
 	public IntUnsafe( final long address )
+	{
+		this( address, null );
+	}
+
+	public IntUnsafe( final long address, final Object ownerReference )
 	{
 		super( Integer.BYTES );
 		this.address = address;
+		this.ownerReference = ownerReference;
 	}
 
 	@Override

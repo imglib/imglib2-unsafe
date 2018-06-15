@@ -7,10 +7,18 @@ public class LongUnsafe extends AbstractStridedUnsafeLongAccess implements LongL
 
 	private final long address;
 
+	private final Object ownerReference;
+
 	public LongUnsafe( final long address )
+	{
+		this( address, null );
+	}
+
+	public LongUnsafe( final long address, final Object ownerReference )
 	{
 		super( Long.BYTES );
 		this.address = address;
+		this.ownerReference = ownerReference;
 	}
 
 	@Override

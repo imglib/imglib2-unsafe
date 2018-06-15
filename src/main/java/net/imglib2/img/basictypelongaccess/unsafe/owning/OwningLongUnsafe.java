@@ -16,7 +16,7 @@ public class OwningLongUnsafe extends AbstractOwningUnsafe implements LongLongAc
 	public OwningLongUnsafe( final long numEntities )
 	{
 		super( UnsafeUtil.create( numEntities * Integer.BYTES ) );
-		this.unsafe = new LongUnsafe( owner.getAddress() );
+		this.unsafe = new LongUnsafe( owner.getAddress(), this );
 		this.numEntities = numEntities;
 	}
 
