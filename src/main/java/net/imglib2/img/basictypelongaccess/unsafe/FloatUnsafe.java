@@ -9,16 +9,19 @@ public class FloatUnsafe extends AbstractStridedUnsafeLongAccess implements Floa
 
 	private final Object ownerReference;
 
+	private final Runnable onFinalize;
+
 	public FloatUnsafe( final long address )
 	{
-		this( address, null );
+		this( address, null, () -> {} );
 	}
 
-	public FloatUnsafe( final long address, final Object ownerReference )
+	public FloatUnsafe( final long address, final Object ownerReference, final Runnable onFinalize )
 	{
 		super( Float.BYTES );
 		this.address = address;
 		this.ownerReference = ownerReference;
+		this.onFinalize = onFinalize;
 	}
 
 	@Override
@@ -48,6 +51,12 @@ public class FloatUnsafe extends AbstractStridedUnsafeLongAccess implements Floa
 	public long getAddres()
 	{
 		return address;
+	}
+
+	@Override
+	public void finalize()
+	{
+		onFinalize.run();
 	}
 
 }

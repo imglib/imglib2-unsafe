@@ -9,16 +9,19 @@ public class DoubleUnsafe extends AbstractStridedUnsafeLongAccess implements Dou
 
 	private final Object ownerReference;
 
+	private final Runnable onFinalize;
+
 	public DoubleUnsafe( final long address )
 	{
-		this( address, null );
+		this( address, null, () -> {} );
 	}
 
-	public DoubleUnsafe( final long address, final Object ownerReference )
+	public DoubleUnsafe( final long address, final Object ownerReference, final Runnable onFinalize )
 	{
 		super( Double.BYTES );
 		this.address = address;
 		this.ownerReference = ownerReference;
+		this.onFinalize = onFinalize;
 	}
 
 	@Override
@@ -48,6 +51,12 @@ public class DoubleUnsafe extends AbstractStridedUnsafeLongAccess implements Dou
 	public long getAddres()
 	{
 		return address;
+	}
+
+	@Override
+	public void finalize()
+	{
+		onFinalize.run();
 	}
 
 }

@@ -16,7 +16,7 @@ public class OwningCharUnsafe extends AbstractOwningUnsafe implements CharLongAc
 	public OwningCharUnsafe( final long numEntities )
 	{
 		super( UnsafeUtil.create( numEntities * Character.BYTES ) );
-		this.unsafe = new CharUnsafe( owner.getAddress(), this );
+		this.unsafe = new CharUnsafe( owner.getAddress(), this, () -> {} );
 		this.numEntities = numEntities;
 	}
 

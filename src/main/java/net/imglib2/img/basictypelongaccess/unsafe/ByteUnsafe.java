@@ -9,16 +9,19 @@ public class ByteUnsafe implements ByteLongAccess
 
 	private final Object ownerReference;
 
+	private final Runnable onFinalize;
+
 	public ByteUnsafe( final long address )
 	{
-		this( address, null );
+		this( address, null, () -> {} );
 	}
 
-	public ByteUnsafe( final long address, final Object ownerReference )
+	public ByteUnsafe( final long address, final Object ownerReference, final Runnable onFinalize )
 	{
 		super();
 		this.address = address;
 		this.ownerReference = ownerReference;
+		this.onFinalize = onFinalize;
 	}
 
 	@Override
@@ -48,6 +51,12 @@ public class ByteUnsafe implements ByteLongAccess
 	public long getAddres()
 	{
 		return address;
+	}
+
+	@Override
+	public void finalize()
+	{
+		onFinalize.run();
 	}
 
 }

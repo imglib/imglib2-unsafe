@@ -16,7 +16,7 @@ public class OwningShortUnsafe extends AbstractOwningUnsafe implements ShortLong
 	public OwningShortUnsafe( final long numEntities )
 	{
 		super( UnsafeUtil.create( numEntities * Integer.BYTES ) );
-		this.unsafe = new ShortUnsafe( owner.getAddress(), this );
+		this.unsafe = new ShortUnsafe( owner.getAddress(), this, () -> {} );
 		this.numEntities = numEntities;
 	}
 

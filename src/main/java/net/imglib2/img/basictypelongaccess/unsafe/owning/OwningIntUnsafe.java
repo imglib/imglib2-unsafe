@@ -16,7 +16,7 @@ public class OwningIntUnsafe extends AbstractOwningUnsafe implements IntLongAcce
 	public OwningIntUnsafe( final long numEntities )
 	{
 		super( UnsafeUtil.create( numEntities * Integer.BYTES ) );
-		this.unsafe = new IntUnsafe( owner.getAddress(), this );
+		this.unsafe = new IntUnsafe( owner.getAddress(), this, () -> {} );
 		this.numEntities = numEntities;
 	}
 

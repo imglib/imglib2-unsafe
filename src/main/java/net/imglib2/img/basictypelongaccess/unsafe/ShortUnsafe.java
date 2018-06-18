@@ -9,16 +9,19 @@ public class ShortUnsafe extends AbstractStridedUnsafeLongAccess implements Shor
 
 	private final Object ownerReference;
 
+	private final Runnable onFinalize;
+
 	public ShortUnsafe( final long address )
 	{
-		this( address, null );
+		this( address, null, () -> {} );
 	}
 
-	public ShortUnsafe( final long address, final Object ownerReference )
+	public ShortUnsafe( final long address, final Object ownerReference, final Runnable onFinalize )
 	{
 		super( Short.BYTES );
 		this.address = address;
 		this.ownerReference = ownerReference;
+		this.onFinalize = onFinalize;
 	}
 
 	@Override
@@ -48,6 +51,12 @@ public class ShortUnsafe extends AbstractStridedUnsafeLongAccess implements Shor
 	public long getAddres()
 	{
 		return address;
+	}
+
+	@Override
+	public void finalize()
+	{
+		onFinalize.run();
 	}
 
 }

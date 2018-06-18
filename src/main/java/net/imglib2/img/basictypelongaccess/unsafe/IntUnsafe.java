@@ -9,16 +9,19 @@ public class IntUnsafe extends AbstractStridedUnsafeLongAccess implements IntLon
 
 	private final Object ownerReference;
 
+	private final Runnable onFinalize;
+
 	public IntUnsafe( final long address )
 	{
-		this( address, null );
+		this( address, null, () -> {} );
 	}
 
-	public IntUnsafe( final long address, final Object ownerReference )
+	public IntUnsafe( final long address, final Object ownerReference, final Runnable onFinalize )
 	{
 		super( Integer.BYTES );
 		this.address = address;
 		this.ownerReference = ownerReference;
+		this.onFinalize = onFinalize;
 	}
 
 	@Override
@@ -48,6 +51,12 @@ public class IntUnsafe extends AbstractStridedUnsafeLongAccess implements IntLon
 	public long getAddres()
 	{
 		return address;
+	}
+
+	@Override
+	public void finalize()
+	{
+		onFinalize.run();
 	}
 
 }

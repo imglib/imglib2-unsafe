@@ -9,16 +9,19 @@ public class LongUnsafe extends AbstractStridedUnsafeLongAccess implements LongL
 
 	private final Object ownerReference;
 
+	private final Runnable onFinalize;
+
 	public LongUnsafe( final long address )
 	{
-		this( address, null );
+		this( address, null, () -> {} );
 	}
 
-	public LongUnsafe( final long address, final Object ownerReference )
+	public LongUnsafe( final long address, final Object ownerReference, final Runnable onFinalize )
 	{
 		super( Long.BYTES );
 		this.address = address;
 		this.ownerReference = ownerReference;
+		this.onFinalize = onFinalize;
 	}
 
 	@Override
@@ -48,6 +51,12 @@ public class LongUnsafe extends AbstractStridedUnsafeLongAccess implements LongL
 	public long getAddres()
 	{
 		return address;
+	}
+
+	@Override
+	public void finalize()
+	{
+		onFinalize.run();
 	}
 
 }

@@ -16,7 +16,7 @@ public class OwningDoubleUnsafe extends AbstractOwningUnsafe implements DoubleLo
 	public OwningDoubleUnsafe( final long numEntities )
 	{
 		super( UnsafeUtil.create( numEntities * Double.BYTES ) );
-		this.unsafe = new DoubleUnsafe( owner.getAddress(), this );
+		this.unsafe = new DoubleUnsafe( owner.getAddress(), this, () -> {} );
 		this.numEntities = numEntities;
 	}
 
