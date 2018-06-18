@@ -10,7 +10,7 @@
 	</parent>
 
 	<artifactId>imglib2-unsafe</artifactId>
-	<version>0.2.0</version>
+	<version>0.2.1-SNAPSHOT</version>
 
 	<name>ImgLib2 Unsafe</name>
 	<description>ImgLib2 data structures using Unsafe.</description>
