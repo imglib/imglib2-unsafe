@@ -1,8 +1,9 @@
 package net.imglib2.img.basictypelongaccess.unsafe;
 
+import net.imglib2.img.basictypeaccess.volatiles.VolatileAccess;
 import net.imglib2.img.basictypelongaccess.IntLongAccess;
 
-public class IntUnsafe extends AbstractStridedUnsafeLongAccess implements IntLongAccess
+public class IntUnsafe extends AbstractStridedUnsafeLongAccess implements IntLongAccess, VolatileAccess
 {
 
 	private final long address;
@@ -14,9 +15,19 @@ public class IntUnsafe extends AbstractStridedUnsafeLongAccess implements IntLon
 		this( address, null );
 	}
 
+	public IntUnsafe( final long address, final boolean isValid )
+	{
+		this( address, null, isValid );
+	}
+
 	public IntUnsafe( final long address, final Object ownerReference )
 	{
-		super( Integer.BYTES );
+		this( address, ownerReference, DEFAULT_IS_VALID );
+	}
+
+	public IntUnsafe( final long address, final Object ownerReference, final boolean isValid )
+	{
+		super( Integer.BYTES, isValid );
 		this.address = address;
 		this.ownerReference = ownerReference;
 	}

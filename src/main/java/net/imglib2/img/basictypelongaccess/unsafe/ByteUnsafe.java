@@ -1,24 +1,39 @@
 package net.imglib2.img.basictypelongaccess.unsafe;
 
+import net.imglib2.img.basictypeaccess.volatiles.VolatileAccess;
 import net.imglib2.img.basictypelongaccess.ByteLongAccess;
 
-public class ByteUnsafe implements ByteLongAccess
+public class ByteUnsafe implements ByteLongAccess, VolatileAccess
 {
+	private static final boolean DEFAULT_IS_VALID = true;
 
 	private final long address;
 
 	private final Object ownerReference;
+
+	private final boolean isValid;
 
 	public ByteUnsafe( final long address )
 	{
 		this( address, null );
 	}
 
+	public ByteUnsafe( final long address, final boolean isValid )
+	{
+		this( address, null, isValid );
+	}
+
 	public ByteUnsafe( final long address, final Object ownerReference )
+	{
+		this( address, ownerReference, DEFAULT_IS_VALID );
+	}
+
+	public ByteUnsafe( final long address, final Object ownerReference, final boolean isValid )
 	{
 		super();
 		this.address = address;
 		this.ownerReference = ownerReference;
+		this.isValid = true;
 	}
 
 	@Override
@@ -48,6 +63,12 @@ public class ByteUnsafe implements ByteLongAccess
 	public long getAddres()
 	{
 		return address;
+	}
+
+	@Override
+	public boolean isValid()
+	{
+		return this.isValid;
 	}
 
 }
