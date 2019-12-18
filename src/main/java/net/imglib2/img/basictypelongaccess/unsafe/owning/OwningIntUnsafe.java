@@ -1,13 +1,13 @@
 package net.imglib2.img.basictypelongaccess.unsafe.owning;
 
-import net.imglib2.img.basictypeaccess.volatiles.VolatileAccess;
+import net.imglib2.img.basictypeaccess.volatiles.VolatileIntAccess;
 import net.imglib2.img.basictypelongaccess.IntLongAccess;
 import net.imglib2.img.basictypelongaccess.unsafe.IntUnsafe;
 import net.imglib2.img.basictypelongaccess.unsafe.UnsafeAccess;
 import net.imglib2.img.basictypelongaccess.unsafe.UnsafeUtil;
 import net.imglib2.type.PrimitiveType;
 
-public class OwningIntUnsafe extends AbstractOwningUnsafe implements IntLongAccess, UnsafeAccess< OwningIntUnsafe >, VolatileAccess
+public class OwningIntUnsafe extends AbstractOwningUnsafe implements IntLongAccess, UnsafeAccess< OwningIntUnsafe >, VolatileIntAccess
 {
 	private static final boolean DEFAULT_IS_VALID = true;
 

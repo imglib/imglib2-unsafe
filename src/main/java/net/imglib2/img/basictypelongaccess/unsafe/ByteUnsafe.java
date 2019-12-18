@@ -1,9 +1,9 @@
 package net.imglib2.img.basictypelongaccess.unsafe;
 
-import net.imglib2.img.basictypeaccess.volatiles.VolatileAccess;
+import net.imglib2.img.basictypeaccess.volatiles.VolatileByteAccess;
 import net.imglib2.img.basictypelongaccess.ByteLongAccess;
 
-public class ByteUnsafe implements ByteLongAccess, VolatileAccess
+public class ByteUnsafe implements ByteLongAccess, VolatileByteAccess
 {
 	private static final boolean DEFAULT_IS_VALID = true;
 

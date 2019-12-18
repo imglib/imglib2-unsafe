@@ -1,9 +1,9 @@
 package net.imglib2.img.basictypelongaccess.unsafe;
 
-import net.imglib2.img.basictypeaccess.volatiles.VolatileAccess;
+import net.imglib2.img.basictypeaccess.volatiles.VolatileCharAccess;
 import net.imglib2.img.basictypelongaccess.CharLongAccess;
 
-public class CharUnsafe extends AbstractStridedUnsafeLongAccess implements CharLongAccess, VolatileAccess
+public class CharUnsafe extends AbstractStridedUnsafeLongAccess implements CharLongAccess, VolatileCharAccess
 {
 
 	private final long address;
