@@ -1,3 +1,5 @@
+[![](https://travis-ci.org/imglib/imglib2-unsafe.svg?branch=master)](https://travis-ci.org/imglib/imglib2-unsafe)
+
 # imglib2-unsafe
 
 The `imglib2` `ArrayImg` class is limited to storage that holds a maximum of `Integer.MAX_VALUE` elements.
