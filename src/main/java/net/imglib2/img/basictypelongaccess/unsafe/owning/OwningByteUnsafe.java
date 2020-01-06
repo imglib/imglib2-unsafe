@@ -1,23 +1,30 @@
 package net.imglib2.img.basictypelongaccess.unsafe.owning;
 
+import net.imglib2.img.basictypeaccess.volatiles.VolatileByteAccess;
 import net.imglib2.img.basictypelongaccess.ByteLongAccess;
 import net.imglib2.img.basictypelongaccess.unsafe.ByteUnsafe;
 import net.imglib2.img.basictypelongaccess.unsafe.UnsafeAccess;
 import net.imglib2.img.basictypelongaccess.unsafe.UnsafeUtil;
 import net.imglib2.type.PrimitiveType;
 
-public class OwningByteUnsafe extends AbstractOwningUnsafe implements ByteLongAccess, UnsafeAccess< OwningByteUnsafe >
+public class OwningByteUnsafe extends AbstractOwningUnsafe implements ByteLongAccess, UnsafeAccess< OwningByteUnsafe >, VolatileByteAccess
 {
+	private static final boolean DEFAULT_IS_VALID = true;
 
 	private final ByteUnsafe unsafe;
 
-	private final long numEntitites;
+	private final long numEntities;
 
 	public OwningByteUnsafe( final long numEntities )
 	{
+		this( numEntities, DEFAULT_IS_VALID );
+	}
+
+	public OwningByteUnsafe( final long numEntities, final boolean isValid )
+	{
 		super( UnsafeUtil.create( numEntities ) );
-		this.unsafe = new ByteUnsafe( owner.getAddress(), this );
-		this.numEntitites = numEntities;
+		this.unsafe = new ByteUnsafe( owner.getAddress(), this, isValid );
+		this.numEntities = numEntities;
 	}
 
 	@Override
@@ -47,7 +54,7 @@ public class OwningByteUnsafe extends AbstractOwningUnsafe implements ByteLongAc
 	@Override
 	public OwningByteUnsafe createAccess( final long numEntities )
 	{
-		return new OwningByteUnsafe( numEntities );
+		return new OwningByteUnsafe( numEntities, isValid() );
 	}
 
 	@Override
@@ -59,7 +66,13 @@ public class OwningByteUnsafe extends AbstractOwningUnsafe implements ByteLongAc
 	@Override
 	public long getSize()
 	{
-		return this.numEntitites;
+		return this.numEntities;
+	}
+
+	@Override
+	public boolean isValid()
+	{
+		return unsafe.isValid();
 	}
 
 }

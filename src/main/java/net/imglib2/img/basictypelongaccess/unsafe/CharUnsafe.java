@@ -1,8 +1,9 @@
 package net.imglib2.img.basictypelongaccess.unsafe;
 
+import net.imglib2.img.basictypeaccess.volatiles.VolatileCharAccess;
 import net.imglib2.img.basictypelongaccess.CharLongAccess;
 
-public class CharUnsafe extends AbstractStridedUnsafeLongAccess implements CharLongAccess
+public class CharUnsafe extends AbstractStridedUnsafeLongAccess implements CharLongAccess, VolatileCharAccess
 {
 
 	private final long address;
@@ -14,9 +15,19 @@ public class CharUnsafe extends AbstractStridedUnsafeLongAccess implements CharL
 		this( address, null );
 	}
 
+	public CharUnsafe( final long address, final boolean isValid )
+	{
+		this( address, null, isValid );
+	}
+
 	public CharUnsafe( final long address, final Object ownerReference )
 	{
-		super( Character.BYTES );
+		this( address, ownerReference, DEFAULT_IS_VALID );
+	}
+
+	public CharUnsafe( final long address, final Object ownerReference, final boolean isValid )
+	{
+		super( Character.BYTES, isValid );
 		this.address = address;
 		this.ownerReference = ownerReference;
 	}
@@ -48,6 +59,20 @@ public class CharUnsafe extends AbstractStridedUnsafeLongAccess implements CharL
 	public long getAddres()
 	{
 		return address;
+	}
+
+	@Override
+	public void finalize() throws Throwable
+	{
+		try
+		{
+			if ( this.ownerReference instanceof Runnable )
+				( ( Runnable ) ownerReference ).run();
+		}
+		finally
+		{
+			super.finalize();
+		}
 	}
 
 }

@@ -1,8 +1,9 @@
 package net.imglib2.img.basictypelongaccess.unsafe;
 
+import net.imglib2.img.basictypeaccess.volatiles.VolatileFloatAccess;
 import net.imglib2.img.basictypelongaccess.FloatLongAccess;
 
-public class FloatUnsafe extends AbstractStridedUnsafeLongAccess implements FloatLongAccess
+public class FloatUnsafe extends AbstractStridedUnsafeLongAccess implements FloatLongAccess, VolatileFloatAccess
 {
 
 	private final long address;
@@ -14,9 +15,19 @@ public class FloatUnsafe extends AbstractStridedUnsafeLongAccess implements Floa
 		this( address, null );
 	}
 
+	public FloatUnsafe( final long address, final boolean isValid )
+	{
+		this( address, null, isValid );
+	}
+
 	public FloatUnsafe( final long address, final Object ownerReference )
 	{
-		super( Float.BYTES );
+		this( address, ownerReference, DEFAULT_IS_VALID );
+	}
+
+	public FloatUnsafe( final long address, final Object ownerReference, final boolean isValid )
+	{
+		super( Float.BYTES, isValid );
 		this.address = address;
 		this.ownerReference = ownerReference;
 	}
@@ -48,6 +59,20 @@ public class FloatUnsafe extends AbstractStridedUnsafeLongAccess implements Floa
 	public long getAddres()
 	{
 		return address;
+	}
+
+	@Override
+	public void finalize() throws Throwable
+	{
+		try
+		{
+			if ( this.ownerReference instanceof Runnable )
+				( ( Runnable ) ownerReference ).run();
+		}
+		finally
+		{
+			super.finalize();
+		}
 	}
 
 }
