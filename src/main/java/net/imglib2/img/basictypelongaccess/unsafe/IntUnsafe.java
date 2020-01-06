@@ -61,4 +61,18 @@ public class IntUnsafe extends AbstractStridedUnsafeLongAccess implements IntLon
 		return address;
 	}
 
+	@Override
+	public void finalize() throws Throwable
+	{
+		try
+		{
+			if ( this.ownerReference instanceof Runnable )
+				( ( Runnable ) ownerReference ).run();
+		}
+		finally
+		{
+			super.finalize();
+		}
+	}
+
 }

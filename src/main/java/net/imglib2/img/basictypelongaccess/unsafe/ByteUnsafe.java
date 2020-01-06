@@ -71,4 +71,18 @@ public class ByteUnsafe implements ByteLongAccess, VolatileByteAccess
 		return this.isValid;
 	}
 
+	@Override
+	public void finalize() throws Throwable
+	{
+		try
+		{
+			if ( this.ownerReference instanceof Runnable )
+				( ( Runnable ) ownerReference ).run();
+		}
+		finally
+		{
+			super.finalize();
+		}
+	}
+
 }

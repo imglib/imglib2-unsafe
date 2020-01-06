@@ -61,4 +61,18 @@ public class CharUnsafe extends AbstractStridedUnsafeLongAccess implements CharL
 		return address;
 	}
 
+	@Override
+	public void finalize() throws Throwable
+	{
+		try
+		{
+			if ( this.ownerReference instanceof Runnable )
+				( ( Runnable ) ownerReference ).run();
+		}
+		finally
+		{
+			super.finalize();
+		}
+	}
+
 }
