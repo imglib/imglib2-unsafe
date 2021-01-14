@@ -167,6 +167,21 @@ public class ARGBLongAccessType extends AbstractNativeLongAccessType< ARGBLongAc
 	}
 
 	@Override
+	public void pow( final ARGBLongAccessType c ) {
+		final int value1 = get();
+		final int value2 = c.get();
+
+		rgba( Math.pow( red( value1 ), red( value2 ) ), Math.pow( green( value1 ), green( value2 ) ), Math.pow( blue( value1 ), blue( value2 ) ), Math.pow( alpha( value1 ), alpha( value2 ) ) );
+	}
+
+	@Override
+	public void pow( final double power ) {
+		final int value1 = get();
+
+		rgba( Math.pow( red( value1 ), power ), Math.pow( green( value1 ), power ), Math.pow( blue( value1 ), power ), Math.pow( alpha( value1 ), power ) );
+	}
+
+	@Override
 	public void set( final ARGBLongAccessType c )
 	{
 		set( c.get() );
