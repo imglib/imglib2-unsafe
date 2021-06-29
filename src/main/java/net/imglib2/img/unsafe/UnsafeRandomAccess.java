@@ -57,7 +57,7 @@ public class UnsafeRandomAccess< T extends NativeLongAccessType< T > > extends A
 		this.img = randomAccess.img;
 		this.type = img.createLinkedType();
 
-		int index = 0;
+		long index = 0;
 		for ( int d = 0; d < n; d++ )
 		{
 			position[ d ] = randomAccess.position[ d ];
@@ -119,7 +119,7 @@ public class UnsafeRandomAccess< T extends NativeLongAccessType< T > > extends A
 	@Override
 	public void move( final Localizable localizable )
 	{
-		int index = 0;
+		long index = 0;
 		for ( int d = 0; d < n; ++d )
 		{
 			final int distance = localizable.getIntPosition( d );
@@ -132,7 +132,7 @@ public class UnsafeRandomAccess< T extends NativeLongAccessType< T > > extends A
 	@Override
 	public void move( final int[] distance )
 	{
-		int index = 0;
+		long index = 0;
 		for ( int d = 0; d < n; ++d )
 		{
 			position[ d ] += distance[ d ];
@@ -144,7 +144,7 @@ public class UnsafeRandomAccess< T extends NativeLongAccessType< T > > extends A
 	@Override
 	public void move( final long[] distance )
 	{
-		int index = 0;
+		long index = 0;
 		for ( int d = 0; d < n; ++d )
 		{
 			position[ d ] += distance[ d ];
@@ -157,7 +157,7 @@ public class UnsafeRandomAccess< T extends NativeLongAccessType< T > > extends A
 	public void setPosition( final Localizable localizable )
 	{
 		localizable.localize( position );
-		int index = 0;
+		long index = 0;
 		for ( int d = 0; d < n; ++d )
 			index += position[ d ] * img.steps[ d ];
 		type.updateIndex( index );
@@ -166,7 +166,7 @@ public class UnsafeRandomAccess< T extends NativeLongAccessType< T > > extends A
 	@Override
 	public void setPosition( final int[] pos )
 	{
-		int index = 0;
+		long index = 0;
 		for ( int d = 0; d < n; ++d )
 		{
 			position[ d ] = pos[ d ];
@@ -178,7 +178,7 @@ public class UnsafeRandomAccess< T extends NativeLongAccessType< T > > extends A
 	@Override
 	public void setPosition( final long[] pos )
 	{
-		int index = 0;
+		long index = 0;
 		for ( int d = 0; d < n; ++d )
 		{
 			final int p = ( int ) pos[ d ];
