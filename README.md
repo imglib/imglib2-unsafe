@@ -1,4 +1,4 @@
-[![](https://travis-ci.org/imglib/imglib2-unsafe.svg?branch=master)](https://travis-ci.org/imglib/imglib2-unsafe)
+[![](https://github.com/imglib/imglib2-unsafe/actions/workflows/build-main.yml/badge.svg)](https://github.com/imglib/imglib2-unsafe/actions/workflows/build-main.yml)
 
 # imglib2-unsafe
 
