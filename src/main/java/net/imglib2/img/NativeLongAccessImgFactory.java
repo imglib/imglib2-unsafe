@@ -29,6 +29,7 @@
 
 package net.imglib2.img;
 
+import net.imglib2.img.basictypelongaccess.BooleanLongAccess;
 import net.imglib2.img.basictypelongaccess.ByteLongAccess;
 import net.imglib2.img.basictypelongaccess.CharLongAccess;
 import net.imglib2.img.basictypelongaccess.DoubleLongAccess;
