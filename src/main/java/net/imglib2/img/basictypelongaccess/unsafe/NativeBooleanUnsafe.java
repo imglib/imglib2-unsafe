@@ -31,6 +31,9 @@ package net.imglib2.img.basictypelongaccess.unsafe;
 import net.imglib2.img.basictypeaccess.volatiles.VolatileBooleanAccess;
 import net.imglib2.img.basictypelongaccess.BooleanLongAccess;
 
+/**
+ * @author Gabriel Selzer
+ */
 public class NativeBooleanUnsafe
 		implements BooleanLongAccess, VolatileBooleanAccess
 {
