@@ -68,6 +68,7 @@ public abstract class NativeLongAccessImgFactory< T extends NativeLongAccessType
 		return type.createSuitableNativeImg( this, dim );
 	}
 
+	public abstract NativeLongAccessImg< T, ? extends BooleanLongAccess> createNativeBooleanInstance( long[] dimensions, Fraction entitiesPerPixel );
 	/* basic type containers */
 	public abstract NativeLongAccessImg< T, ? extends ByteLongAccess > createByteInstance( long[] dimensions, Fraction entitiesPerPixel );
 
