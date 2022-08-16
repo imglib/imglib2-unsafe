@@ -32,7 +32,8 @@ package net.imglib2.img.basictypelongaccess;
 import net.imglib2.img.basictypeaccess.BooleanAccess;
 
 /**
- * TODO
+ * A {@link BooleanAccess} that can also query indices representable by a
+ * {@code long}
  *
  * @author Gabriel Selzer
  */

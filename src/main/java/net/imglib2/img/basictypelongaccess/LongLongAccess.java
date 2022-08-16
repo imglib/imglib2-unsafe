@@ -32,7 +32,8 @@ package net.imglib2.img.basictypelongaccess;
 import net.imglib2.img.basictypeaccess.LongAccess;
 
 /**
- * TODO
+ * A {@link LongAccess} that can also query indices representable by a
+ * {@code long}
  *
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
