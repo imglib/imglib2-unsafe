@@ -35,6 +35,12 @@ import net.imglib2.img.basictypelongaccess.unsafe.UnsafeAccess;
 import net.imglib2.img.basictypelongaccess.unsafe.UnsafeUtil;
 import net.imglib2.type.PrimitiveType;
 
+/**
+ * A convenience wrapper for {@link NativeBooleanUnsafe} that uses itself as the
+ * owner of the memory accessed.
+ * 
+ * @author Gabriel Selzer
+ */
 public class OwningNativeBooleanUnsafe extends AbstractOwningUnsafe implements
 		BooleanLongAccess, UnsafeAccess<OwningNativeBooleanUnsafe>,
 		VolatileBooleanAccess
@@ -50,6 +56,14 @@ public class OwningNativeBooleanUnsafe extends AbstractOwningUnsafe implements
 		this( numEntities, DEFAULT_IS_VALID );
 	}
 
+	/**
+	 * The default {@link OwningNativeBooleanUnsafe} constructor
+	 * 
+	 * @param numEntities
+	 *            the size (in number of indices) of the backing memory.
+	 * @param isValid
+	 *            the validity of this {@link OwningNativeBooleanUnsafe}
+	 */
 	public OwningNativeBooleanUnsafe( final long numEntities, final boolean isValid )
 	{
 		super( UnsafeUtil.create( numEntities ) );
