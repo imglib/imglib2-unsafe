@@ -32,6 +32,9 @@ import net.imglib2.img.basictypeaccess.volatiles.VolatileBooleanAccess;
 import net.imglib2.img.basictypelongaccess.BooleanLongAccess;
 
 /**
+ * A {@link BooleanLongAccess} that accesses memory, starting from
+ * {@code address}.
+ *
  * @author Gabriel Selzer
  */
 public class NativeBooleanUnsafe
@@ -58,6 +61,19 @@ public class NativeBooleanUnsafe
 		this( address, ownerReference, DEFAULT_IS_VALID );
 	}
 
+	/**
+	 * Standard {@link NativeBooleanUnsafe} constructor.
+	 * 
+	 * @param address
+	 *            the address in memory to index from
+	 * @param ownerReference
+	 *            a reference to another {@link Object} that can hold control
+	 *            over the memory starting at {@code address}. Can be used to
+	 *            ensure that the backing memory is <b>not</b>
+	 *            garbage-collected.
+	 * @param isValid
+	 *            - denotes the validity of this {@link NativeBooleanUnsafe}
+	 */
 	public NativeBooleanUnsafe( final long address, final Object ownerReference, final boolean isValid )
 	{
 		super();
@@ -76,12 +92,27 @@ public class NativeBooleanUnsafe
 		setValue( ( long ) index, value );
 	}
 
+	/**
+	 * Returns the boolean value at {@code index}.
+	 * 
+	 * @param index
+	 *            the offset (in bytes) from {@code address}.
+	 * @return the value at {@code index}
+	 */
 	@Override
 	public boolean getValue( final long index )
 	{
 		return wrapped.getValue(index) > 0;
 	}
 
+	/**
+	 * Sets the value at {@code index}.
+	 * 
+	 * @param index
+	 *            the offset (in bytes) from {@code address}
+	 * @param value
+	 *            the boolean value to be set at {@code index}
+	 */
 	@Override
 	public void setValue( final long index, final boolean value )
 	{
