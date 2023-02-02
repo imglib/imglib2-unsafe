@@ -2,7 +2,7 @@
  * #%L
  * ImgLib2 data structures using Unsafe.
  * %%
- * Copyright (C) 2017 - 2021 Howard Hughes Medical Institute.
+ * Copyright (C) 2017 - 2023 Howard Hughes Medical Institute.
  * %%
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -32,7 +32,8 @@ package net.imglib2.img.basictypelongaccess;
 import net.imglib2.img.basictypeaccess.FloatAccess;
 
 /**
- * TODO
+ * A {@link FloatAccess} that can also query indices representable by a
+ * {@code long}
  *
  * @author Stephan Preibisch
  * @author Stephan Saalfeld

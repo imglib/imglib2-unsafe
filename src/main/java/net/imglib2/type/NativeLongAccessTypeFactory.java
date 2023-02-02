@@ -2,7 +2,7 @@
  * #%L
  * ImgLib2 data structures using Unsafe.
  * %%
- * Copyright (C) 2017 - 2021 Howard Hughes Medical Institute.
+ * Copyright (C) 2017 - 2023 Howard Hughes Medical Institute.
  * %%
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -31,6 +31,7 @@ package net.imglib2.type;
 import java.util.function.Function;
 
 import net.imglib2.img.NativeLongAccessImg;
+import net.imglib2.img.basictypelongaccess.BooleanLongAccess;
 import net.imglib2.img.basictypelongaccess.ByteLongAccess;
 import net.imglib2.img.basictypelongaccess.CharLongAccess;
 import net.imglib2.img.basictypelongaccess.DoubleLongAccess;
@@ -105,6 +106,11 @@ public final class NativeLongAccessTypeFactory< T extends NativeLongAccessType< 
 	public T createLinkedType( final NativeLongAccessImg< T, ? extends A > img )
 	{
 		return createLinkedType.apply( img );
+	}
+
+	public static < T extends NativeLongAccessType< T >, A extends BooleanLongAccess > NativeLongAccessTypeFactory< T, A > BOOLEAN( final Function< NativeLongAccessImg< T, ? extends A >, T > createLinkedType )
+	{
+		return new NativeLongAccessTypeFactory<>( PrimitiveType.BOOLEAN, createLinkedType );
 	}
 
 	public static < T extends NativeLongAccessType< T >, A extends ByteLongAccess > NativeLongAccessTypeFactory< T, A > BYTE( final Function< NativeLongAccessImg< T, ? extends A >, T > createLinkedType )

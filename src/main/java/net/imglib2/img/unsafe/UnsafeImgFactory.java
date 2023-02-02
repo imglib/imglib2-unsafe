@@ -2,7 +2,7 @@
  * #%L
  * ImgLib2 data structures using Unsafe.
  * %%
- * Copyright (C) 2017 - 2021 Howard Hughes Medical Institute.
+ * Copyright (C) 2017 - 2023 Howard Hughes Medical Institute.
  * %%
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -42,6 +42,7 @@ import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningDoubleUnsafe;
 import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningFloatUnsafe;
 import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningIntUnsafe;
 import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningLongUnsafe;
+import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningBooleanUnsafe;
 import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningShortUnsafe;
 import net.imglib2.type.NativeLongAccessType;
 import net.imglib2.type.NativeLongAccessTypeFactory;
@@ -79,6 +80,14 @@ public class UnsafeImgFactory< T extends NativeLongAccessType< T > > extends Nat
 	{
 		final long numEntities = entitiesPerPixel.mulCeil( AbstractImg.numElements( dimensions ) );
 		return numEntities;
+	}
+
+	@Override
+	public UnsafeImg< T, OwningBooleanUnsafe > createNativeBooleanInstance( final long[] dimensions, final Fraction entitiesPerPixel )
+	{
+		final long numEntities = numEntities( dimensions, entitiesPerPixel );
+
+		return new UnsafeImg<>( new OwningBooleanUnsafe( numEntities ), dimensions, entitiesPerPixel );
 	}
 
 	@Override

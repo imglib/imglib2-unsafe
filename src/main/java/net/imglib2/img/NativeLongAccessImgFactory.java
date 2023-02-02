@@ -2,7 +2,7 @@
  * #%L
  * ImgLib2 data structures using Unsafe.
  * %%
- * Copyright (C) 2017 - 2021 Howard Hughes Medical Institute.
+ * Copyright (C) 2017 - 2023 Howard Hughes Medical Institute.
  * %%
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -29,6 +29,7 @@
 
 package net.imglib2.img;
 
+import net.imglib2.img.basictypelongaccess.BooleanLongAccess;
 import net.imglib2.img.basictypelongaccess.ByteLongAccess;
 import net.imglib2.img.basictypelongaccess.CharLongAccess;
 import net.imglib2.img.basictypelongaccess.DoubleLongAccess;
@@ -68,6 +69,8 @@ public abstract class NativeLongAccessImgFactory< T extends NativeLongAccessType
 	}
 
 	/* basic type containers */
+	public abstract NativeLongAccessImg< T, ? extends BooleanLongAccess> createNativeBooleanInstance( long[] dimensions, Fraction entitiesPerPixel );
+
 	public abstract NativeLongAccessImg< T, ? extends ByteLongAccess > createByteInstance( long[] dimensions, Fraction entitiesPerPixel );
 
 	public abstract NativeLongAccessImg< T, ? extends CharLongAccess > createCharInstance( long[] dimensions, Fraction entitiesPerPixel );

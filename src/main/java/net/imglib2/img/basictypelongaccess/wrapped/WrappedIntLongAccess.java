@@ -2,7 +2,7 @@
  * #%L
  * ImgLib2 data structures using Unsafe.
  * %%
- * Copyright (C) 2017 - 2021 Howard Hughes Medical Institute.
+ * Copyright (C) 2017 - 2023 Howard Hughes Medical Institute.
  * %%
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -33,7 +33,7 @@ import net.imglib2.img.basictypeaccess.IntAccess;
 import net.imglib2.img.basictypelongaccess.IntLongAccess;
 
 /**
- * TODO
+ * An {@link IntLongAccess} backed by an {@link IntAccess}.
  *
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
