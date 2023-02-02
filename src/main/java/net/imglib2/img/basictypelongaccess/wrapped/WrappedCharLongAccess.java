@@ -33,7 +33,7 @@ import net.imglib2.img.basictypeaccess.CharAccess;
 import net.imglib2.img.basictypelongaccess.CharLongAccess;
 
 /**
- * TODO
+ * A {@link CharLongAccess} backed by a {@link CharAccess}.
  *
  * @author Stephan Preibisch
  * @author Stephan Saalfeld

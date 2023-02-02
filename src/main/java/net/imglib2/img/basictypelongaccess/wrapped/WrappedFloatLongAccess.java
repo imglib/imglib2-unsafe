@@ -33,7 +33,7 @@ import net.imglib2.img.basictypeaccess.FloatAccess;
 import net.imglib2.img.basictypelongaccess.FloatLongAccess;
 
 /**
- * TODO
+ * A {@link FloatLongAccess} backed by a {@link FloatAccess}.
  *
  * @author Stephan Preibisch
  * @author Stephan Saalfeld

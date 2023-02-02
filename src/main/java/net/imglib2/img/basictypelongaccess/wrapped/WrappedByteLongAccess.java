@@ -33,7 +33,7 @@ import net.imglib2.img.basictypeaccess.ByteAccess;
 import net.imglib2.img.basictypelongaccess.ByteLongAccess;
 
 /**
- * TODO
+ * A {@link ByteLongAccess} backed by a {@link ByteAccess}.
  *
  * @author Stephan Preibisch
  * @author Stephan Saalfeld
