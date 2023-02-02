@@ -42,7 +42,7 @@ import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningDoubleUnsafe;
 import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningFloatUnsafe;
 import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningIntUnsafe;
 import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningLongUnsafe;
-import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningNativeBooleanUnsafe;
+import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningBooleanUnsafe;
 import net.imglib2.img.basictypelongaccess.unsafe.owning.OwningShortUnsafe;
 import net.imglib2.type.NativeLongAccessType;
 import net.imglib2.type.NativeLongAccessTypeFactory;
@@ -83,11 +83,11 @@ public class UnsafeImgFactory< T extends NativeLongAccessType< T > > extends Nat
 	}
 
 	@Override
-	public UnsafeImg< T, OwningNativeBooleanUnsafe > createNativeBooleanInstance( final long[] dimensions, final Fraction entitiesPerPixel )
+	public UnsafeImg< T, OwningBooleanUnsafe > createNativeBooleanInstance( final long[] dimensions, final Fraction entitiesPerPixel )
 	{
 		final long numEntities = numEntities( dimensions, entitiesPerPixel );
 
-		return new UnsafeImg<>( new OwningNativeBooleanUnsafe( numEntities ), dimensions, entitiesPerPixel );
+		return new UnsafeImg<>( new OwningBooleanUnsafe( numEntities ), dimensions, entitiesPerPixel );
 	}
 
 	@Override
