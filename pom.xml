@@ -79,6 +79,8 @@
 
 		<license.licenseName>bsd_2</license.licenseName>
 		<license.copyrightOwners>Howard Hughes Medical Institute.</license.copyrightOwners>
+
+		<imglib2.version>7.0.0</imglib2.version>
 	</properties>
 
 	<repositories>
