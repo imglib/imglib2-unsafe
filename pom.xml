@@ -11,7 +11,7 @@
 
 	<groupId>net.imglib2</groupId>
 	<artifactId>imglib2-unsafe</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<version>1.1.1-SNAPSHOT</version>
 
 	<name>ImgLib2 Unsafe</name>
 	<description>ImgLib2 data structures using Unsafe.</description>
