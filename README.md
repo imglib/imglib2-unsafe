@@ -1,4 +1,4 @@
-[![](https://github.com/imglib/imglib2-unsafe/actions/workflows/build-main.yml/badge.svg)](https://github.com/imglib/imglib2-unsafe/actions/workflows/build-main.yml)
+[![Build Status](https://github.com/imglib/imglib2-unsafe/actions/workflows/build.yml/badge.svg)](https://github.com/imglib/imglib2-unsafe/actions/workflows/build.yml)
 
 # imglib2-unsafe
 

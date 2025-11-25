@@ -81,6 +81,9 @@
 		<license.copyrightOwners>Howard Hughes Medical Institute.</license.copyrightOwners>
 
 		<imglib2.version>7.0.1</imglib2.version>
+
+		<!-- NB: Deploy releases to the SciJava Maven repository. -->
+		<releaseProfiles>sign,deploy-to-scijava</releaseProfiles>
 	</properties>
 
 	<repositories>
